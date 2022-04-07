@@ -1,0 +1,88 @@
+import UseWindowSize from "../../../../library/use-window-size";
+
+const Processing = (props) => {
+    const { orders, onClick } = props;
+    const onCancelOrder = (orderCode) => {
+        onClick(orderCode);
+    };
+    const {width} = UseWindowSize();
+    return (
+        <table className="table order-management-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Tổng thanh toán</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {orders?.Orders.length > 0 &&
+                    orders?.Orders.map((item, index) => (
+                        <tr key={index}>
+                            <td>
+                                <div className="order-product">
+                                    <p className="order-branch">
+                                        {item.BuyFrom}
+                                    </p>
+                                    <div className="order-info">
+                                        <div className="order-image">
+                                            <img src={item?.Image} />
+                                        </div>
+                                        <div className="order-bill">
+                                            <p>
+                                                <span>Số hoá đơn</span>:
+                                                <span>{item.OrderCode}</span>
+                                            </p>
+                                            <p>
+                                                <span>Tiền hàng</span>:
+                                                <span className="price">
+                                                    {item.OrderAmount}
+                                                    <span className="unit">
+                                                        VND
+                                                    </span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>Vận chuyển</span>:
+                                                <span className="price">
+                                                    {item.ShippingPrice}
+                                                    <span className="unit">
+                                                        VND
+                                                    </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {width <= 767 && <button
+                                        onClick={() =>
+                                            onCancelOrder(item?.OrderCode)
+                                        }
+                                        className="btn-cancel button-mobile">
+                                        Huỷ đặt hàng
+                                    </button>}
+                                </div>
+                            </td>
+                            <td className="text-center">1</td>
+                            <td className="text-center">
+                                <span className="price">
+                                    {item.TotalAmount}
+                                    <span className="unit">VND</span>
+                                </span>
+                            </td>
+                            <td>
+                                <button
+                                    onClick={() =>
+                                        onCancelOrder(item?.OrderCode)
+                                    }
+                                    className="btn-cancel">
+                                    Huỷ đặt hàng
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+            </tbody>
+        </table>
+    );
+};
+export default Processing;

@@ -1,0 +1,102 @@
+/* accordion */
+.accordion-item {
+    margin-top: 20px;
+    border: 1px solid #D8D7D7;
+    max-width: 1407px;
+    width: 100%;
+}
+.accordion-item:first-child {
+    margin-top: 0;
+}
+.accordion-item .name {
+    cursor: pointer;
+    padding: 30px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-bottom: 1px solid #D8D7D7;
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+}
+.accordion-item .name .fa {
+    float: right;
+    font-size: 24px;
+}
+.accordion-item .body{
+    margin: 0 30px;
+}
+.accordion-item .body:not(:last-child) {
+    border-bottom: 1px solid #D8D7D7;
+}
+.accordion-item .title {
+    padding: 15px 0px;
+}
+.accordion-item .content {
+    padding: 0 0 15px 30px;
+}
+
+/* shopping guide */
+.shopping-guide p {
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 18px;
+    font-family :Roboto;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+}
+
+/* size guide */
+.size-guide .body-left img {
+    padding: 30px;
+}
+.size-guide .body-right {
+    padding-right: 60px;
+}
+.size-guide table thead tr th {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 20px;
+    border: 1px solid #707070;
+    text-align: center;
+}
+.size-guide table tbody tr td {
+    padding: 20px;
+    border: 1px solid #707070;
+}
+.size-guide table tbody tr td:not(:first-child) {
+    text-align: center;
+}
+.container__policy__right .accordion-item .size-guide-item-append{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 27px 20px;
+    font-size: 18px;
+    font-weight:500;
+    margin-bottom:-1px;
+}
+.container__policy__right .accordion-item .size-guide-item-append-hover:hover{
+    color:#ff2c00 ;
+}
+
+@media (max-width: 575px) {
+    .input-search-container-policy {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: auto;
+    }
+    .shopping-guide {
+        padding: 0 15px;
+    }
+    .size-guide .row {
+        margin:  0;
+    }
+    .size-guide .body-right {
+        padding:  0;
+    }
+}

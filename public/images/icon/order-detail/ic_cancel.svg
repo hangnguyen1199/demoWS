@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="54.75" height="61.75" viewBox="0 0 54.75 61.75">
+  <g id="Group_5928" data-name="Group 5928" transform="translate(1.735 0.75)">
+    <path id="Subtraction_37" data-name="Subtraction 37" d="M37.194,47H12.814v-.114h24.38a2.614,2.614,0,0,0,2.687-2.529V2.643A2.614,2.614,0,0,0,37.194.113H2.8A2.611,2.611,0,0,0,.123,2.643V34.324H0L0,2.643A2.731,2.731,0,0,1,2.8,0h34.39A2.731,2.731,0,0,1,40,2.643V44.356A2.732,2.732,0,0,1,37.194,47Z" transform="translate(12.266)" fill="none" stroke="#000" stroke-width="1.5"/>
+    <g id="Group_5095" data-name="Group 5095" transform="translate(21.029 12.324)">
+      <rect id="Rectangle_1951" data-name="Rectangle 1951" width="22.093" height="0.116" transform="translate(0 0)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+    <g id="Group_5096" data-name="Group 5096" transform="translate(21.029 23.705)">
+      <rect id="Rectangle_1952" data-name="Rectangle 1952" width="22.093" height="0.116" transform="translate(0 0)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+    <g id="Group_5097" data-name="Group 5097" transform="translate(21.029 35.088)">
+      <rect id="Rectangle_1953" data-name="Rectangle 1953" width="22.093" height="0.116" transform="translate(0 0)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+    <g id="Ellipse_1789" data-name="Ellipse 1789" transform="translate(-1.735 34)" fill="none" stroke="#000" stroke-width="1.5">
+      <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+      <circle cx="13.5" cy="13.5" r="12.75" fill="none"/>
+    </g>
+    <line id="Line_952" data-name="Line 952" x1="11.009" y2="11.009" transform="translate(6.425 41.7)" fill="none" stroke="#000" stroke-width="1.5"/>
+    <line id="Line_953" data-name="Line 953" x1="11.009" y2="11.009" transform="translate(17.434 41.7) rotate(90)" fill="none" stroke="#000" stroke-width="1.5"/>
+  </g>
+</svg>

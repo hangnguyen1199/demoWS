@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.7" height="21.7" viewBox="0 0 25.7 21.7">
+  <g id="firstname" data-name="firstname" transform="translate(-4.487 -15.3)">
+    <rect id="Rectangle_1579" data-name="Rectangle 1579" width="25" height="17.763" rx="2" transform="translate(4.836 18.887)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    <rect id="Rectangle_1581" data-name="Rectangle 1581" width="7.583" height="1.78" rx="0.89" transform="translate(19.088 23.434)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    <rect id="Rectangle_1582" data-name="Rectangle 1582" width="7.583" height="1.78" rx="0.89" transform="translate(19.088 27.585)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    <rect id="Rectangle_1583" data-name="Rectangle 1583" width="7.583" height="1.78" rx="0.89" transform="translate(19.088 31.693)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    <path id="Rectangle_1584" data-name="Rectangle 1584" d="M3.236,0H5.363A3.236,3.236,0,0,1,8.6,3.236v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A3.236,3.236,0,0,1,3.236,0Z" transform="translate(13.062 15.65)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    <rect id="Rectangle_1585" data-name="Rectangle 1585" width="4.37" height="2.07" transform="translate(15.144 18.843)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    <g id="Group_7446" data-name="Group 7446" transform="translate(8.131 23.051)">
+      <g id="Group_3922" data-name="Group 3922">
+        <circle id="Ellipse_1377" data-name="Ellipse 1377" cx="2.931" cy="2.931" r="2.931" transform="translate(1.707)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+        <path id="Path_4027" data-name="Path 4027" d="M39.7,116.451v-.36a4.244,4.244,0,0,1,4.244-4.244h.579a4.244,4.244,0,0,1,4.244,4.244v.36" transform="translate(-39.702 -105.985)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+      </g>
+    </g>
+  </g>
+</svg>

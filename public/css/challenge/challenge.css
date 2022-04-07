@@ -1,0 +1,436 @@
+.challenge-container-master .side-right {
+    padding-left: 20px !important;
+}
+
+.challenge-container-master .verticalTab {
+    max-width: 393px;
+    width: 100%;
+    height: auto;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+}
+
+.challenge-container-master .verticalTab-item {
+    height: 59px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border-left: 2px solid #f2f2f2;
+    cursor: pointer;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.challenge-container-master .verticalTab-item .flex-vertical-tab {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    font-weight: "400";
+}
+
+.challenge-container-master .verticalTab-item:hover {
+     color: #ff2c00;
+    border-left: 2px solid #ff2c00;
+}
+
+.challenge-container-master .verticalTab-item.active {
+    background-color: white;
+    color: #ff2c00;
+    border-left: 2px solid #ff2c00;
+    border-bottom: unset;
+}
+
+.challenge-container-master .icon-vertical-tab svg {
+    color: #000000;
+    fill: #000000;
+    height: 26px;
+    width: 26px;
+}
+
+.challenge-container-master  .verticalTab-item.active .icon-vertical-tab svg {
+    fill: #ff2c00;
+    color: #ff2c00;
+}
+
+.challenge-container-master .verticalTab-item:hover .icon-vertical-tab svg {
+    fill: #ff2c00;
+    color: #ff2c00;
+}
+
+.challenge-container-master .verticalTab-mobile {
+    width: 100%;
+    height: auto;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    display: flex;
+    flex-direction: row;
+}
+.verticalTab-mobile .verticalTab-mobi-item{
+
+}
+
+.challenge-container-master  .verticalTab-item {
+    width: 100%;
+}
+
+.challenge-container-master .bg-hour {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 2px;
+    margin:0px 2px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.vertical-ipad{
+    display: block;
+}
+.vertical-mobile{
+    display: none;
+}
+.verticalTab-ipad{
+    width: 100%;
+    height: auto;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    display: flex;
+    flex-direction: row;
+}
+
+.challenge-container-master .verticalTab-ipad .verticalTab-item.active {
+    background-color: white;
+    color: #ff2c00;
+    border-bottom: 2px solid #ff2c00;
+    border-left:  2px solid #f2f2f2;
+}
+
+.vertical-tab-mobi{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vertical-tab-mobi .vertical-tab-mobi-item{
+    width: 100%;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 6px #0000000F;
+    border: 0.5px solid #D8D7D7;
+}
+.vertical-tab-mobi .vertical-tab-mobi-item:last-child{
+    margin-right: 0px;
+}
+
+.challenge-container-master .vertical-tab-mobi .vertical-tab-mobi-item.active {
+    background-color: white;
+    color: #ff2c00;
+    border-bottom: 2px solid #ff2c00;
+}
+.challenge-container-master .vertical-tab-mobi .vertical-tab-mobi-item.active .icon-vertical-tab svg{
+    fill: #ff2c00;
+    color: #ff2c00;
+}
+
+/*  */
+.challenge-question-item {
+    height: auto;
+    width: 100%;
+    border: 0.5px solid #D8D7D7;
+    box-shadow: 3px 3px 6px #0000000F;
+    margin: 0px 0px 30px 0px;
+}
+
+.challenge-question-item:last-child {
+    margin: 0px;
+}
+
+.challenge-question-item-inner {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.challenge-question-item-inner .infor {
+    display: flex;
+    align-items: center;
+}
+
+.challenge-question-item-inner .infor-image {
+    height: 107px;
+    width: 107px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25.5px;
+    padding-right: 25.5px;
+    margin-right: 20px;
+}
+
+.challenge-question-item-inner .infor-image svg {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.challenge-question-item-inner .infor-description {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.challenge-question-item-inner .infor-description-item {
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+}
+.challenge-question-item-inner .infor-description-item .infor-description-item-icon{
+    height:25px;
+    width:25px;
+    padding-left: 1px;
+    padding-right: 1px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.challenge-question-item-inner .infor-description-item .infor-description-item-icon svg{
+    height:100%;
+    width:100%;
+}
+.challenge-question-item-inner .infor-description-item p {
+    padding-left: 5px;
+    line-height:21px;
+}
+
+.challenge-question-item-inner .join {
+    display: flex;
+    align-items: center;
+}
+
+.challenge-question-item-inner .challenge-progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.challenge-question-item-inner .join-button {
+    background-color: #FFD500;
+    color: #333;
+    width: auto;
+}
+
+.challenge-question-item-inner .challenge-button {
+    width: 118px;
+    height: 39px;
+    font-weight: 400;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.challenge-question-item-inner .success-button {
+    background-color: #0DBC00;
+}
+
+.challenge-question-item-inner .progress-button {
+    background-color: #FF2C00;
+    color: #fff;
+}
+
+.challenge-question-item-inner .notcompleted-button {
+    background-color: #000;
+    color: #fff;
+}
+
+.challenge-question-item-inner .progress-range p {
+    text-align: end;
+}
+
+
+/* start == chinh update */
+
+.btn-happy .challenge-button {
+    width: 140px;
+}
+
+.btn-history .challenge-button {
+    width: 177px;
+}
+
+/* end == chinh update */
+
+.challenge-question-item-inner .progress-ranger {
+    height: 5px;
+    width: 100%;
+    background-color: #D8D7D7;
+    border-radius: 10px;
+    position: relative;
+}
+
+.challenge-question-item-inner .progress-ranger-done {
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.challenge-question-item-inner .progress-ranger-pointer {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid;
+}
+
+.challenge-question-item-inner .progress-ranger-pointer:before {
+    content: "";
+    position: absolute;
+    height: 9px;
+    width: 9px;
+    background-color: transparent;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transform: translate(-50%, -50%);
+}
+
+/* @media */
+
+@media only screen and (max-width: 991px) {
+    .challenge-container-master .side-right {
+        padding-left: 0px !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .verticalTab-ipad {
+        width: 100%;
+        flex-direction: column;
+    }
+    .challenge-question-item-inner {
+        padding: 10px 20px;
+        position: relative;
+    }
+    .challenge-question-item-inner .infor-image {
+        height: 70px;
+        width: 70px;
+        border: 1px solid #000000;
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-right: 10px;
+    }
+    .challenge-question-item-inner .infor-description-item .infor-description-item-icon{
+        height:20px;
+        width:20px;
+    }
+    .challenge-question-item-inner .infor-description-item p {
+        line-height:20px;
+    }
+    .challenge-question-item-inner .join, .challenge-question-item-inner .challenge-progress{
+        position:absolute;
+        right: 20px;
+        bottom: 10px;
+    }
+    .challenge-question-item-inner .challenge-button {
+        width: 95px;
+        height: 26px;
+        border-radius:5px;
+    }
+    .btn-happy .challenge-button ,.btn-history .challenge-button{
+        width: 145px;
+    }
+    .challenge-question-item-inner .progress-range {
+        margin-bottom: 5px;
+    }
+    .challenge-question-item {
+        margin-bottom:20px;
+    }
+
+}
+@media only screen and (max-width: 500px) {
+    .vertical-ipad{
+        display: none;
+    }
+    .vertical-mobile{
+        display: block;
+    }
+    .flex-vertical-tab{
+        font-size: 14px;
+        line-height: 18px;
+        padding-top: 5px;
+    }
+    .challenge-question-item-inner {
+        padding: 10px;
+    }
+    .challenge-question-item-inner .infor-image {
+        height: 55px;
+        width: 55px;
+        border: 1px solid #000000;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 5px;
+    }
+    .challenge-question-item-inner .infor-description-item .infor-description-item-icon {
+        height: 16px;
+        width: 16px;
+    }
+    .challenge-question-item-inner .infor-description-item p {
+        line-height: 21px;
+    }
+    .challenge-question-item {
+        margin-bottom:15px;
+    }
+    .challenge-question-item-inner .infor-description-item {
+        font-size: 14px;
+    }
+    .challenge-question-item-inner .challenge-button {
+        font-size: 11px;
+    }
+    .challenge-question-item-inner .join, .challenge-question-item-inner .challenge-progress{
+        position:absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+    .challenge-question-item-inner .infor-description-item p {
+        padding-left: 3px;
+    }
+    .btn-happy .challenge-button, .btn-history .challenge-button {
+        width: 102px;
+        padding: 1px 2px;
+    }
+    .challenge-question-item-inner .progress-range {
+        font-size: 14px;
+    }
+    .btn-history .challenge-button svg{
+        width:20px;
+    }
+}
+@media only screen and (max-width: 340px){
+    .challenge-question-item-inner .challenge-button {
+        font-size: 9px;
+    }
+    .btn-happy .challenge-button, .btn-history .challenge-button {
+        width: 80px;
+    }
+    .vertical-tab-mobi .vertical-tab-mobi-item {
+        padding: 5px;
+    }
+    .challenge-question-item-inner .challenge-button {
+        width: 80px;
+    }
+}

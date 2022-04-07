@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="33"
+     viewBox="0 0 33 33">
+    <defs>
+        <linearGradient id="a" x1="0.785" y1="0.099" x2="0.297" y2="0.927" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f9d871"/>
+            <stop offset="1" stop-color="#ecae00"/>
+        </linearGradient>
+        <clipPath id="b">
+            <rect y="4" width="12.856" height="16.04" fill="none"/>
+        </clipPath>
+    </defs>
+    <g transform="translate(-30.42 -353.42)">
+        <circle cx="16.5" cy="16.5" r="16.5" transform="translate(30.42 353.42)" fill="url(#a)"/>
+        <g transform="translate(32.42 355.42)" fill="none" stroke="#fff" stroke-width="1">
+            <circle cx="14.5" cy="14.5" r="14.5" stroke="none"/>
+            <circle cx="14.5" cy="14.5" r="14" fill="none"/>
+        </g>
+    </g>
+</svg>

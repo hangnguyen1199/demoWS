@@ -1,0 +1,9 @@
+const actions = {
+    SUBMIT_PHONE: 'SUBMIT_PHONE',
+    SUBMIT_OTP: 'SUBMIT_OTP',
+    RESEND_OTP: 'RESEND_OTP',
+    SUBMIT_OTP_SUCCESS: 'SUBMIT_OTP_SUCCESS',
+    SUBMIT_OTP_FAILURE: 'SUBMIT_OTP_FAILURE',
+};
+
+export default actions;

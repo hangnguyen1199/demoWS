@@ -1,0 +1,903 @@
+.order-master-component .left-side {
+    margin-bottom: 0px;
+}
+
+.order-master-component .form-input--wrapper {
+    margin-top: unset !important;
+}
+.order-master-component .form-input--wrapper .render-input {
+    padding-left: 20px;
+    border: 0.5px solid #d8d7d7 !important;
+    min-height: unset !important;
+    height: 64px !important;
+}
+
+.order-master-component .form-input--wrapper .render-input label {
+    margin-bottom: 2px !important;
+    margin-top: 4px !important;
+    font-weight: 400 !important;
+}
+
+.order-master-component .form-input--wrapper .render-input input {
+    font-weight: 300 !important;
+}
+
+.order-master-component .border-shadow {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 6px #0000000d;
+    border: 0.5px solid #d8d7d7;
+    opacity: 1;
+}
+
+.order-master-component .cross-line {
+    margin: 0px 0;
+    border: 0;
+    border-bottom: 1px solid #e8e9eb;
+}
+
+.order-master-component .btn-size-small {
+    height: 39px !important;
+    width: 150px !important;
+}
+
+.order-master-component .btn-add-address {
+    height: 39px !important;
+    width: 199px !important;
+}
+
+.order-master-component .addr-section {
+    padding-top: 25px !important;
+}
+
+.order-master-component .addr-section,
+.order-master-component .product-section,
+.order-master-component .time-section {
+    margin-bottom: 30px;
+}
+
+.order-master-component .addr-title {
+    margin-bottom: 12px;
+}
+
+.order-master-component .addr-content {
+    margin-top: 15px;
+    /* margin-left: 30px !important;
+    margin-right: 1.75rem !important; */
+    cursor: pointer;
+	overflow-y: auto;
+    max-height: 300px;
+}
+
+.order-master-component .addr-content p {
+    margin: 0.2rem 0;
+}
+
+.order-master-component .addr-content .cross-line-address {
+    margin: 20px 0px;
+}
+
+.flex-grow-content-address{
+    width: 95%;
+}
+
+.order-master-component .free-ship-section {
+    margin-bottom: 30px;
+}
+
+.order-master-component .reduce-title,
+.order-master-component .time-title {
+    margin-bottom: 15px;
+}
+
+.order-master-component .reduce-content,
+.order-master-component .time-content {
+    padding: 0px 15px;
+    padding-left: 30px;
+}
+
+.order-master-component .reduce-content .item-style {
+    margin: 15px 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.order-master-component .reduce-content .item-style p {
+    color: #333333;
+    margin-bottom: 0px;
+}
+
+.order-master-component .time-content .item-style {
+    margin: 15px 0px;
+}
+
+.order-master-component .time-content .item-style .input-note,
+.order-master-component .input-order-style {
+    border: unset;
+    padding: unset;
+    width: 100%;
+}
+
+.order-master-component .time-content .item-style .input-note:focus,
+.order-master-component .input-order-style:focus {
+    box-shadow: unset !important;
+}
+
+.order-master-component
+    .time-content
+    .item-style
+    .input-note:focus
+    + .render-input {
+    border: 0.5px solid #ff2c00;
+}
+
+.order-master-component .input-order-style:focus + .mat-input {
+    border: 0.5px solid #ff2c00;
+}
+
+.order-master-component .input-order-point-wrap .render-input {
+    height: 27px !important;
+    width: 81px !important;
+    padding: 2px 5px 4px 5px !important;
+}
+
+.order-master-component .input-order-point-wrap .render-input input {
+    line-height: 1px !important;
+}
+
+.order-master-component .render-input:focus-within {
+    border-color: #ff2c00 !important;
+    box-shadow: 0 0 0 0.1rem rgb(253 204 100 / 51%) !important;
+}
+
+.order-master-component .mat-input:focus-within {
+    border-color: #ff2c00 !important;
+    box-shadow: 0 0 0 0.1rem rgb(253 204 100 / 51%) !important;
+}
+
+.order-master-component .time-content .note-wrap .form-input--wrapper,
+.order-master-component .input-order-wrap .form-input--wrapper {
+    width: 100% !important;
+}
+
+.order-master-component .time-content .note-wrap .d-center,
+.order-master-component .input-order-wrap .d-center {
+    justify-content: unset !important;
+    display: block !important;
+}
+
+.order-master-component .time-content .pointer {
+    cursor: pointer;
+}
+
+.order-master-component .payment-method-content {
+   padding-left: 30px;
+}
+
+.order-master-component .time-content .bolder,
+.order-master-component .payment-method-content .bolder {
+    font-weight: 400;
+}
+
+.order-master-component .time-content .lighter,
+.order-master-component .payment-method-content .lighter {
+    font-weight: 300;
+}
+
+.order-master-component .payment-method-content .bank-info-wrap {
+    padding-left: 30px;
+    font-weight: 300;
+}
+
+.order-master-component .payment-method-content .bank-row {
+    margin-bottom: 5px;
+}
+
+.order-master-component .payment-method-content .bank-info-wrap .bank-row p{
+    margin-bottom: 0px;
+}
+
+
+.order-master-component .payment-method-content .bank-info-wrap .bank-row .p-title{
+    width: 150px;
+}
+
+.order-master-component .payment-method-content .bank-info-wrap .bank-row .p-title  div,
+.order-master-component .payment-method-content .bank-info-wrap .bank-row .div-content-banking  div{
+    width: 3px;
+    margin-right: 5px;
+}
+
+.order-master-component .payment-method-content .bank-info-wrap .bank-row .p-content{
+    width: 250px;
+}
+
+.order-master-component .payment-method-content .bank-info-wrap .bank-row .div-content-banking{
+    width: 400px;
+}
+
+.order-master-component .btn-light-border {
+    border: 1px solid #000000 !important;
+}
+
+.order-master-component .product-row {
+    margin-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.order-master-component .product-section .product-table thead {
+    height: 50px;
+    background: #f2f2f2 0% 0% no-repeat padding-box;
+    border: 0px 0px 0.5px 0px solid #d8d7d7;
+    opacity: 1;
+    font-weight: 500;
+}
+
+.order-master-component
+    .product-section
+    .product-table
+    tbody
+    tr:not(:last-child) {
+    border-bottom: 0px;
+    box-shadow: 0px 30px 2px -30px #c9cbce;
+}
+
+.order-master-component .product-section .product-image {
+    width: 142px;
+    height: 142px;
+    object-fit: cover;
+}
+
+.order-master-component .product-section .product-description {
+    margin-left: 15px;
+}
+
+.order-master-component .product-section .product-description p {
+    margin-bottom: 0px;
+    display: block;
+    font-weight: 400;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.order-master-component .product-section .product-description .product-code {
+    font-size: 14px !important;
+    font-weight: 300;
+    /* line-height: 5px; */
+    margin-bottom: 10px;
+}
+
+.order-master-component .w-70 {
+    max-width: 70px;
+}
+
+.order-master-component .table-head-product-name {
+    padding-left: 60px;
+}
+
+.order-master-component .total-section {
+    padding: 30px 40px;
+    margin-top: 30px;
+}
+
+.order-master-component .total-section .bill-row,
+.order-master-component .total-section .point-row {
+    font-weight: 500;
+}
+
+.order-master-component .total-section .total-money {
+    font-size: 19px;
+    color: #ff2c00;
+}
+
+.order-master-component .total-section .btn-order {
+    height: 39px !important;
+}
+
+.order-master-component .min-w-350 {
+    min-width: 350px;
+}
+
+.order-master-component .min-w-150 {
+    min-width: 150px;
+}
+
+.order-master-component .payment-method-section {
+    padding: 30px 16px 16px 16px;
+}
+
+.order-master-component .payment-method-section .payment-method-title {
+    margin-bottom: 16px;
+}
+
+.order-master-component .payment-method-section .payment-method-row {
+    margin-top: 15px;
+}
+
+.order-master-component .mg-t-b-20 {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.order-master-component .custom-modal .modal-body {
+    padding: 15px !important;
+}
+
+.order-master-component .title-address-modal {
+    font-size: 20px;
+}
+
+.order-master-component .btn-addr-confirm {
+    width: 60% !important;
+    /* margin-top: 20px; */
+}
+
+.order-master-component .new-addr-modal {
+    width: 75% !important;
+    max-width: 1500px !important;
+    min-width: unset !important;
+}
+
+.order-master-component .branch-address-modal {
+    height: 700px;
+    width: 670px;
+    min-width: unset !important;
+}
+
+.order-master-component .input-order-wrap select {
+    border: 0;
+    color: gray;
+}
+
+.order-master-component .input-branch-search {
+    height: 41px !important;
+    border: 0.1px solid #333333 !important;
+    border-radius: 4px;
+}
+
+.order-master-component .input-branch-search input {
+    height: 41px !important;
+    background: unset !important;
+}
+
+.order-master-component .input-branch-search .form-input--wrapper {
+    width: 100%;
+    padding-right: 3px !important;
+    padding-left: 10px !important;
+}
+
+.order-master-component .input-branch-search .render-input {
+    height: 41px !important;
+    padding: unset !important;
+    border-top: 0.1px solid #333333 !important;
+    border-left: unset !important;
+    border-right: unset !important;
+    border-bottom: 0.1px solid #333333 !important;
+    border-radius: 0%;
+}
+
+.order-master-component .input-branch-search .render-input .d-center {
+    display: block !important;
+}
+
+.order-master-component .input-branch-search:focus-within {
+    border-color: #ff2c00 !important;
+    box-shadow: 0 0 0 0.1rem rgb(253 204 100 / 51%) !important;
+}
+
+.order-master-component .input-branch-search .render-input:focus-within {
+    border-top: 0.1px solid #ff2c00 !important;
+    border-bottom: 0.1px solid #ff2c00 !important;
+    border-left: unset !important;
+    border-right: unset !important;
+    box-shadow: unset !important;
+    border-radius: 0%;
+}
+
+.order-master-component .branch-row-item {
+    border-bottom: 1px solid #c9cbce;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+.order-master-component .branch-row-item:not(:last-child) {
+    border-bottom: 1px solid #c9cbce;
+}
+
+.order-master-component .branch-row-text {
+    color: #707070;
+}
+
+.order-master-component .chosen-branch-color {
+    color: #333333;
+}
+
+.order-master-component .branch-list {
+    height: 482px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.order-master-component .branch-list::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.order-master-component .btn-branch-address-confirm,
+.order-master-component .btn-freeship-voucher-confirm {
+    width: 60% !important;
+    margin-top: 20px;
+}
+
+.order-master-component .color-text-gray {
+    color: #a8a8a8 !important;
+}
+
+.order-master-component .freeship-voucher-modal,
+.order-master-component .purchase-voucher-modal {
+    width: 500px;
+    min-width: unset !important;
+}
+
+.order-master-component .voucher-logo-wrap {
+    margin-bottom: 15px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.order-master-component .voucher-logo {
+    height: 115px;
+    position: relative;
+    background-size: cover;
+}
+
+.order-master-component .freeship-voucher-modal .voucher-available-bg {
+    background-image: url('/images/order/bg_free_shipping.jpg');
+}
+
+.order-master-component .purchase-voucher-modal .voucher-available-bg {
+    background-image: url('/images/order/bg_purchase_voucher.jpg');
+}
+
+.order-master-component .voucher-unavailable-bg {
+    background-image: url('/images/order/bg_purchase_used.jpg');
+}
+
+.order-master-component .voucher-title {
+    width: 110px;
+}
+
+.order-master-component .voucher-content {
+    width: 310px;
+    padding-left: 15px;
+    font-weight: 400;
+}
+
+.order-master-component .voucher-title .lazyload-wrapper {
+    text-align: center;
+}
+
+.order-master-component .voucher-title .icon-car {
+    width: 69px;
+}
+
+.order-master-component .voucher-logo .amount {
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    line-height: 1px;
+    margin-top: 13px !important;
+    margin-bottom: 10px !important;
+}
+
+.order-master-component .purchase-voucher-modal .voucher-logo .amount {
+    width: 110px;
+    text-align: center;
+}
+
+.order-master-component .voucher-logo .unit {
+    font-weight: 500;
+    font-size: 13px;
+    color: #fff;
+}
+
+.order-master-component .voucher-chosen .icon-tick {
+    width: 15px;
+    padding-bottom: 5px;
+    margin-right: 25px;
+}
+
+.order-master-component .reason-unvailable-voucher {
+    border-radius: 0px 0px 4px 4px;
+    background-color: #fef7e7;
+    margin: -10px 5px 0px 5px;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.order-master-component .reason-unvailable-voucher p {
+    margin-top: 5px;
+}
+
+.order-master-component .freeship-voucher-list {
+    max-height: 482px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.order-master-component .freeship-voucher-list::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.order-master-component .text-color-orange {
+    color: #ff2c00;
+}
+
+.order-master-component .text-color-gray {
+    color: #d8d7d7;
+}
+
+.order-master-component .point-modal {
+    width: 470px;
+    min-width: unset !important;
+}
+
+.order-master-component .w-point {
+    width: 120px;
+    font-weight: 500;
+}
+
+.order-master-component .point-coin-wrap .lazyload-wrapper {
+    width: unset !important;
+}
+
+.order-master-component .point-coin {
+    width: 28px;
+    margin-top: -2px;
+}
+
+.order-master-component .point-coin-2 {
+    width: 28px;
+    margin-top: 2px;
+}
+
+.order-master-component .text-size-10 {
+    font-size: 10px;
+}
+
+.order-master-component .point-item-row:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.order-master-component .w-point .input-order-wrap {
+    width: 90px;
+    padding: 4px 5px;
+}
+
+.order-master-component .btn-point-confirm {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100% !important;
+}
+
+.order-master-component .applied-voucher {
+    margin-right: 30px;
+}
+
+.order-master-component .text-weight-bold {
+    font-weight: 500 !important;
+}
+
+.order-master-component .text-weight-light {
+    font-weight: 300 !important;
+}
+
+.add-address-popup .mat-input {
+    max-height: 59px !important;
+    min-height: 59px !important;
+    padding: 7px 15px !important;
+}
+
+.add-address-popup .mat-input.mat-select{
+    padding: 7px 0 !important;
+}
+
+.order-master-component .common_btn_dark span,
+.order-master-component .common_btn_light span {
+    text-transform: none;
+}
+
+
+@media only screen and (min-width: 1920px) {
+    .order-master-component .total-section .btn-order {
+        height: 39px !important;
+        width: 460px !important;
+    }
+
+    .order-master-component .right-side {
+        width: 542px;
+        float: right;
+    }
+}
+
+.order-master-component .payment-method-content .img-res {
+    min-width: 15px !important;
+    min-height: 19px !important;
+    margin-bottom: 5px !important;
+}
+
+@media only screen and (max-width: 1440px) {
+    .order-master-component .payment-method-content {
+        padding-left: 10px;
+    }
+
+    .order-master-component .payment-method-content .bank-info-wrap .bank-row .p-title{
+        width: 120px;
+    }
+
+    .order-master-component .payment-method-content .bank-info-wrap .bank-row .div-content-banking{
+        width: 380px;
+    } 
+
+    .order-master-component .payment-method-content .img-res {
+        width: 18px !important;
+        height: 20px !important;
+    }
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .order-master-component .product-section .product-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .order-master-component
+        .product-section
+        .product-table
+        .product-description {
+        max-width: 200px;
+    }
+
+    .order-master-component .payment-method-content {
+        padding-left: 10px;
+    }
+
+    .order-master-component .payment-method-content .bank-info-wrap {
+        padding-left: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .order-master-component .product-section .product-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .order-master-component
+        .product-section
+        .product-table
+        .product-description {
+        max-width: 200px;
+    }
+
+    .order-master-component .new-addr-modal {
+        width: 85% !important;
+    }
+    .order-master-component .branch-address-modal {
+        width: 85% !important;
+    }
+
+    .order-master-component .right-side {
+        margin-top: 20px;
+    }
+
+    .order-master-component .payment-method-content .img-res {
+        width: 15px !important;
+        height: 19px !important;
+        margin-bottom: 5px !important;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .order-master-component {
+        padding: 0px 0.25rem;
+    }
+
+    .order-master-component .freeship-voucher-modal,
+    .order-master-component .purchase-voucher-modal {
+        width: 340px !important;
+    }
+
+    .order-master-component .voucher-logo {
+        height: 73px;
+        position: relative;
+        background-size: cover;
+    }
+
+    .order-master-component .voucher-title {
+        width: 67px;
+        padding-left: 10px;
+    }
+
+    .order-master-component .voucher-title .icon-car {
+        width: 45px;
+    }
+
+    .order-master-component .voucher-content {
+        width: 185px;
+        padding-left: 15px;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .order-master-component .voucher-title .lazyload-wrapper {
+        text-align: center;
+    }
+
+    .order-master-component .voucher-logo .amount {
+        font-weight: 500;
+        font-size: 15px;
+        color: #fff;
+        line-height: 1px;
+        margin-top: 10px !important;
+        margin-bottom: 7px !important;
+    }
+
+    .order-master-component .voucher-logo .unit {
+        font-weight: 500;
+        font-size: 10px;
+        color: #fff;
+    }
+
+    .order-master-component .voucher-chosen .icon-tick {
+        width: 10px;
+        padding-bottom: 5px;
+        margin-right: 0px;
+    }
+
+    .order-master-component .reason-unvailable-voucher {
+        border-radius: 0px 0px 4px 4px;
+        background-color: #fef7e7;
+        margin: -10px 5px 0px 5px;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+    .order-master-component .reason-unvailable-voucher p {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .purchase-voucher-modal .voucher-content span {
+        line-height: 0.9rem;
+    }
+
+    .order-master-component .purchase-voucher-modal .voucher-logo .amount {
+        width: 110px;
+        text-align: center;
+    }
+
+    .order-master-component .applied-voucher-wrap {
+        flex-direction: column-reverse;
+    }
+
+    .order-master-component .applied-voucher {
+        margin-right: 0px;
+        margin-top: 15px;
+    }
+    /*  */
+    .order-master-component .btn-size-small {
+        height: 39px !important;
+        width: 100px !important;
+        line-height: 14px !important;
+        font-size: 14px !important;
+    }
+    .order-master-component .btn-size-small span{
+        font-size: 14px !important;
+    }
+
+    .order-master-component .left-side {
+        margin-bottom: 10px;
+    }
+    .order-master-component .addr-title .group-button-addr {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .order-master-component .btn-add-address {
+        width: 165px !important;
+        margin-right: 0px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .order-master-component .new-addr-modal {
+        max-height: 100% !important;
+        overflow-y: auto;
+    }
+
+    .order-master-component .point-modal {
+        max-width: 340px;
+    }
+
+    .order-master-component .point-modal .mobile-label {
+        max-width: 80px !important;
+    }
+
+    .order-master-component .point-modal .w-point {
+        max-width: 110px;
+    }
+
+    .order-master-component .total-section {
+        margin-bottom: 20px;
+    }
+
+    .order-master-component .right-side {
+        margin-top: 20px;
+    }
+
+    .order-master-component .payment-method-content {
+        padding-left: 10px;
+    }
+
+    .order-master-component .payment-method-content .bank-info-wrap {
+        padding-left: 20px;
+    }
+
+    .order-master-component .payment-method-content .bank-info-wrap .bank-row .p-title{
+        width: 120px;
+    }
+
+
+    .order-master-component .payment-method-content .bank-info-wrap .bank-row .p-content{
+        max-width: 150px;
+    }
+
+    .order-master-component .payment-method-content .bank-info-wrap .bank-row .div-content-banking{
+        max-width: 270px;
+    }
+
+}
+
+.save-success-popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.8;
+    z-index: 9999;
+}
+
+.save-success-popup .content,
+.save-success-popup .icon {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.save-success-popup .div-button {
+    width: 150px;
+}
+
+.bank-info {
+    margin-top: 5px;
+}
+
+.bank-info p {
+    font-weight: lighter !important;
+    margin-bottom: 0px;
+    font-style: italic;
+    padding-left: 15px;
+}

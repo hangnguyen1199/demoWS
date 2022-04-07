@@ -1,0 +1,41 @@
+.title{
+    font-size:20px;
+    color: #333;
+    padding: 20px 0px 0px;
+    font-weight:500;
+}
+.myRank{
+    padding: 10px 0px 20px;
+    border-bottom: 1px solid #D8D7D7;
+}
+.top3Rank{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+.rankList{
+    padding: 5px 20px;
+}
+.top3RankMobi{
+    display:none;
+}
+@media only screen and (max-width:768px){
+    .top3Rank{
+        display:none;
+    }
+    .top3RankMobi{
+        display:block;
+    }
+    .rankList{
+        padding: 0px;
+    }
+}
+@media only screen and (max-width:425px){
+    .myRank{
+        padding: 0px;
+    }
+    .title{
+        font-size:16px;
+        padding: 10px 0px 0px;
+    }
+}

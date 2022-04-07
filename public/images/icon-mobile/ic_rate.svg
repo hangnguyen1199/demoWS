@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.023" height="17.99" viewBox="0 0 18.023 17.99">
+  <g id="Group_4161" data-name="Group 4161" transform="translate(-4.19 -4.2)">
+    <g id="Group_4160" data-name="Group 4160" transform="translate(4.69 4.7)">
+      <path id="Path_4119" data-name="Path 4119" d="M9.82,20.149H4.69V4.7H17.8v6.024" transform="translate(-4.69 -4.7)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <g id="Group_4159" data-name="Group 4159" transform="translate(1.905 3.269)">
+        <line id="Line_483" data-name="Line 483" x2="8.013" transform="translate(0.002)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line_484" data-name="Line 484" x1="7.265" transform="translate(0.002 2.972)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line_485" data-name="Line 485" x1="1.307" transform="translate(0 5.941)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line_486" data-name="Line 486" x1="2.936" transform="translate(0 8.914)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+    <path id="Path_4120" data-name="Path 4120" d="M56.26,56.885l1.53,3.1a.287.287,0,0,0,.216.157l3.42.5a.287.287,0,0,1,.159.49L59.11,63.54a.287.287,0,0,0-.083.254l.584,3.406a.287.287,0,0,1-.416.3l-3.059-1.608a.287.287,0,0,0-.267,0L52.81,67.5a.287.287,0,0,1-.416-.3l.584-3.406a.287.287,0,0,0-.083-.254l-2.475-2.412a.287.287,0,0,1,.159-.49l3.42-.5a.287.287,0,0,0,.216-.157l1.53-3.1A.287.287,0,0,1,56.26,56.885Z" transform="translate(-39.966 -45.856)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

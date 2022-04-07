@@ -1,0 +1,174 @@
+@import url('http://fonts.cdnfonts.com/css/miso');
+@import url('http://fonts.cdnfonts.com/css/digital-7-mono');
+.m0{
+    margin:0px;
+}
+.cardContainer{
+    /* height:283px; */
+    padding-top: 60%;
+    width: 100%;
+    border-radius: 10px;
+    /* background-color: #fff; */
+    position: relative;
+}
+.ratio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.cardColor, .cardBackground{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+.card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    color: #333;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0px;
+}
+.cardBlack{
+    color: #fff;
+}
+.logo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.qrcode{
+    height:60px;
+    width: 60px;
+    color: black;
+}
+.fmImg{
+    display:flex;
+    justify-content:flex-end;
+}
+.uppercase{
+    font-family: 'Miso' , sans-serif;
+    text-transform: uppercase;
+    font-size:22px;
+    line-height: 27px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+.infor{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.cardAccountNumber{
+    font-size:40px;
+    font-family: 'Digital-7', sans-serif;
+    font-weight: 400;
+    line-height:25px;
+    letter-spacing:6px
+}
+.cardNumber{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.cardNumberSurplus , .cardNumberType{
+    font-size:23px;
+    font-family: 'Digital-7', sans-serif;
+    font-weight: 400;
+    line-height:23px;
+    letter-spacing:2.3px
+}
+.cardUser{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.cardDate{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.cardUserName, .expiration{
+    font-family: 'Miso' , sans-serif;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight:600;
+    line-height:18px;
+    letter-spacing:1.88px;
+    
+}
+.isValidItem{
+    font-size:9px;
+    text-transform: uppercase;
+    font-family: 'Miso' , sans-serif;
+    margin-right:5px;
+}
+@media only screen and (max-width:1250px){
+    .qrcode{
+        height:40px;
+        width: 40px;
+    }
+    .qrcode svg{
+        height:100%;
+        width: 100%;
+    }
+    .fmImg{
+        height: 18px;
+    }
+    .fmImg svg{
+        height: 100%;
+    }
+    .uppercase{
+        font-size:16px;
+        line-height: 25px;
+    }
+    .cardAccountNumber{
+        font-size:30px;
+        margin-bottom:5px
+    }
+    .cardNumberSurplus , .cardNumberType{
+        font-size:20px;
+    }
+    .cardUserName, .expiration{
+        font-size: 22px;
+        
+    }
+}
+@media only screen and (max-width:425px){
+    .qrcode{
+        height:30px;
+        width: 30px;
+    }
+    .fmImg{
+        height: 15px;
+    }
+    .uppercase{
+        font-size:14px;
+        line-height: 25px;
+    }
+    .cardAccountNumber{
+        font-size:24px;
+        margin-bottom:0px;
+    }
+    .cardNumberSurplus , .cardNumberType{
+        font-size:16px;
+    }
+    .cardUserName, .expiration{
+        font-size: 18px;
+    }
+    .isValidItem{
+        font-size:7px;
+    }
+    .card{
+        padding: 15px;
+    }
+}

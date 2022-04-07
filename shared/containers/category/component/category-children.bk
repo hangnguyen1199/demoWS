@@ -1,0 +1,143 @@
+
+import ListItemChildGender from '../../../components/category/list-item-child-gender';
+import { useRouter } from 'next/router';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash';
+import constants from '@spo/config/constants';
+import HomeActions from '@spo/redux/home/action';
+
+let dataChildFake = [
+  {
+    id: 1,
+    images: "/images/category/baby.png",
+    title: 'Em bé',
+    detail: "0 - 12"
+  },
+  {
+    id: 2,
+    images: "/images/category/children-girl-5.png",
+    title: 'Bé gái',
+    detail: "1 - 5"
+  },
+  {
+    id: 3,
+    images: "/images/category/children-boy-5.png",
+    title: 'Bé trai',
+    detail: "1 - 5"
+  },
+  {
+    id: 4,
+    images: "/images/category/children-girl.png",
+    title: 'Con gái',
+    detail: "6 - 12"
+  },
+  {
+    id: 5,
+    images: "/images/category/children-boy.png",
+    title: 'Con trai',
+    detail: "6 - 12"
+  },
+]
+function CategoryChildren(props) {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const common = useSelector((state) => state.Common);
+  const { loading, data } = useSelector((state) => state.Home);
+  const {
+    data: { wishlistProducts },
+  } = useSelector((state) => state.Wishlist);
+  const {
+    loading: { loadingSlide },
+    data: { settingMaster },
+  } = useSelector((state) => state.Common);
+
+  const BgCategory=`/images/category/bg-category-child.png`
+
+  useEffect(() => {
+    let topParam = {};
+    topParam.Type = constants.TYPE_SEARCH.PRODUCT_TYPE.PRODUCT_TOP;
+    topParam.Limit = 12;
+    topParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_TOP_VIEWED_PRODUCT,
+      data: { data: topParam },
+    }); // TODO
+
+    let newestParam = {};
+    newestParam.Type = constants.TYPE_SEARCH.PRODUCT_TYPE.PRODUCT_NEW;
+    newestParam.Limit = 12;
+    newestParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_NEWEST_PRODUCT,
+      data: { data: newestParam },
+    });
+    let goldenHourParam = {};
+    goldenHourParam.TypeOfPromotion = constants.TYPE_SEARCH.PROMOTION.PROMOTION_GOLDEN_HOUR;
+    goldenHourParam.Limit = 12;
+    goldenHourParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_GOLDEN_HOUR_PRODUCT,
+      data: { data: goldenHourParam },
+    });
+    let supperSaleParam = {};
+    supperSaleParam.TypeOfPromotion = constants.TYPE_SEARCH.PROMOTION.PROMOTION_SUPPER_SALE;
+    supperSaleParam.Limit = 12;
+    supperSaleParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_SUPPER_SALE_PRODUCT,
+      data: { data: supperSaleParam },
+    });
+    let trendingParam = {};
+    trendingParam.Type = constants.TYPE_SEARCH.PRODUCT_TYPE.PRODUCT_TREND;
+    trendingParam.Limit = 12;
+    trendingParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_TRENDING_PRODUCT,
+      data: { data: trendingParam },
+    });
+
+    let newsParam = {};
+    newsParam.Limit = 4;
+    newsParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_NEWS,
+      data: { data: newsParam },
+    });
+
+    let promotionParam = {};
+    promotionParam.Limit = 2;
+    promotionParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_PROMOTION,
+      data: { data: promotionParam },
+    });
+
+    let searchTopParam = {};
+    searchTopParam.Type = constants.TYPE_SEARCH.PRODUCT_TYPE.PRODUCT_SEARCH_TOP;
+    searchTopParam.Limit = 12;
+    searchTopParam.Offset = 0;
+    dispatch({
+      type: HomeActions.LOAD_PRODUCT_FILTER,
+      data: { data: searchTopParam },
+    }); // TODO
+  }, []);
+
+  return (
+    <>
+      <ListItemChildGender
+        dataTopSearch={data.listSearchTop}
+        dataHourGold={data.goldenHourProducts}
+        dataLive={[]}
+        dataSale={data.supperSaleProducts}
+        dataTrend={data.trendingProducts}
+        dataProductNews={data.newestProducts}
+        dataPromotion={data.listPromotion}
+        wishlistProducts={wishlistProducts}
+        loading={loading}
+        dataChild={dataChildFake}
+        backgroundTop={BgCategory} />
+    </>
+  )
+}
+export default CategoryChildren;

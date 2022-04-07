@@ -1,0 +1,331 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* ._editor html,
+._editor body,
+._editor div,
+._editor span,
+._editor applet,
+._editor object,
+._editor iframe,
+._editor h1,
+._editor h2,
+._editor h3,
+._editor h4,
+._editor h5,
+._editor h6,
+._editor p,
+._editor blockquote,
+._editor pre,
+._editor a,
+._editor abbr,
+._editor acronym,
+._editor address,
+._editor big,
+._editor cite,
+._editor code,
+._editor del,
+._editor dfn,
+._editor em,
+._editor img,
+._editor ins,
+._editor kbd,
+._editor q,
+._editor s,
+._editor samp,
+._editor small,
+._editor strike,
+._editor strong,
+._editor sub,
+._editor sup,
+._editor tt,
+._editor var,
+._editor b,
+._editor u,
+._editor i,
+._editor center,
+._editor dl,
+._editor dt,
+._editor dd,
+._editor ol,
+._editor ul,
+._editor li,
+._editor fieldset,
+._editor form,
+._editor label,
+._editor legend,
+._editor table,
+._editor caption,
+._editor tbody,
+._editor tfoot,
+._editor thead,
+._editor tr,
+._editor th,
+._editor td,
+._editor article,
+._editor aside,
+._editor canvas,
+._editor details,
+._editor embed,
+._editor figure,
+._editor figcaption,
+._editor footer,
+._editor header,
+._editor hgroup,
+._editor menu,
+._editor nav,
+._editor output,
+._editor ruby,
+._editor section,
+._editor summary,
+._editor time,
+._editor mark,
+._editor audio,
+._editor video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+} */
+/* HTML5 display-role reset for older browsers */
+._editor article,
+._editor aside,
+._editor details,
+._editor figcaption,
+._editor figure,
+._editor footer,
+._editor header,
+._editor hgroup,
+._editor menu,
+._editor nav,
+._editor section {
+    display: block;
+}
+._editor body {
+    line-height: 1;
+}
+/* ._editor ol,
+._editor ul {
+    list-style: none;
+} */
+._editorblockquote,
+._editorq {
+    quotes: none;
+}
+._editorblockquote:before,
+._editorblockquote:after,
+._editorq:before,
+._editorq:after {
+    content: '';
+    content: none;
+}
+._editor table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+._editor p {
+	margin-bottom: unset;
+	font-size: 1rem;
+}
+
+._editor .body{
+    overflow: unset;
+}
+._editor .cke_editable
+{
+	font-size: 13px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+._editor blockquote
+{
+	font-style: italic;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	padding: 2px 0;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 0;
+}
+
+._editor .cke_contents_ltr blockquote
+{
+	padding-left: 20px;
+	padding-right: 8px;
+	border-left-width: 5px;
+}
+
+._editor .cke_contents_rtl blockquote
+{
+	padding-left: 8px;
+	padding-right: 20px;
+	border-right-width: 5px;
+}
+
+._editor a
+{
+	color: #0782C1;
+}
+
+/* ._editor ol,._editor ul,._editor dl
+{
+	margin-right: 0px !important;
+    padding: 0 40px;
+    margin-bottom: unset;
+} */
+
+._editor h1 ,._editor h2,._editor h3,._editor h4,._editor h5,._editor h6
+{
+	font-weight: normal;
+	line-height: 1.2;
+}
+._editor h1{
+	font-size: 1.3rem;
+}
+._editor h2{
+	font-size: 1.2rem;
+}
+._editor h3{
+	font-size: 1.1rem;
+}
+._editor h4{
+	font-size: 1rem;
+}
+._editor hr
+{
+	border: 0px;
+	border-top: 1px solid #ccc;
+}
+
+._editor img.right
+{
+	border: 1px solid #ccc;
+	float: right;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+._editor img.left
+{
+	border: 1px solid #ccc;
+	float: left;
+	margin-right: 15px;
+	padding: 5px;
+}
+
+._editor pre
+{
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE7 */
+	-moz-tab-size: 4;
+	tab-size: 4;
+}
+
+._editor .marker
+{
+	background-color: Yellow;
+}
+
+._editor span[lang]
+{
+	font-style: italic;
+}
+
+._editor figure
+{
+	text-align: center;
+	outline: solid 1px #ccc;
+	background: rgba(0,0,0,0.05);
+	padding: 10px;
+	margin: 10px 20px;
+	display: inline-block;
+}
+
+._editor figure > figcaption
+{
+	text-align: center;
+	display: block; /* For IE8 */
+}
+
+._editor a > img {
+	padding: 1px;
+	margin: 1px;
+	border: none;
+	outline: 1px solid #0782C1;
+}
+
+/* Widget Styles */
+._editor .code-featured
+{
+	border: 5px solid red;
+}
+
+._editor .math-featured
+{
+	padding: 20px;
+	box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+	background-color: rgba(255, 0, 0, 0.05);
+	margin: 10px;
+}
+
+._editor .image-clean
+{
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+._editor .image-clean > figcaption
+{
+	font-size: .9em;
+	text-align: right;
+}
+
+._editor .image-grayscale
+{
+	background-color: white;
+	color: #666;
+}
+
+._editor .image-grayscale img,._editor  img.image-grayscale
+{
+	filter: grayscale(100%);
+}
+
+._editor .embed-240p
+{
+	max-width: 426px;
+	max-height: 240px;
+	margin:0 auto;
+}
+
+._editor .embed-360p
+{
+	max-width: 640px;
+	max-height: 360px;
+	margin:0 auto;
+}
+
+._editor .embed-480p
+{
+	max-width: 854px;
+	max-height: 480px;
+	margin:0 auto;
+}
+
+._editor .embed-720p
+{
+	max-width: 1280px;
+	max-height: 720px;
+	margin:0 auto;
+}
+
+._editor .embed-1080p
+{
+	max-width: 1920px;
+	max-height: 1080px;
+	margin:0 auto;
+}

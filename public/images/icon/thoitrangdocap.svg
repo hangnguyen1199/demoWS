@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="524.339" height="507.328" viewBox="0 0 524.339 507.328">
+  <g id="Component_328_31" data-name="Component 328 – 31" transform="translate(1.5 1.5)">
+    <g id="Group_7935" data-name="Group 7935">
+      <path id="Path_18000" data-name="Path 18000" d="M86.424,84.279v-.028c.676-16.662,1.117-29.776,1.352-37.637l.116-3.492c.031-.616.06-1.2.06-1.7l.028-.56" transform="translate(145.564 30.919)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path id="Path_18001" data-name="Path 18001" d="M228.692,395.156a502.845,502.845,0,0,0,124.958-15.945s-12.177-126.7-15.777-231.748c-.03-.309-.03-.588-.03-.87-.759-22.191-1.125-43.4-.927-62.211l.927,62.211v.843l.03.027,28.179,48.77s34.23-10.212,58.781-40.473L348.643,29.819,287.275,15.5s-4.611,41.4-54.363,45.254c-.339,0-45.282-.087-56.2-45.282L116.672,29.792l-55.49,91.769" transform="translate(96.506 -15.476)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path id="Path_18002" data-name="Path 18002" d="M86.4,85.864v-.031l1.408-37.665.2-5.751a3.484,3.484,0,0,0,.031-.557l.028-.732v-.5l.028-.616" transform="translate(145.527 29.365)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <g id="Group_7934" data-name="Group 7934" transform="translate(0 133.335)">
+        <path id="Path_18003" data-name="Path 18003" d="M127.593,25.549,76.716,38.9,4.667,163.615s15.524,33.238,69.151,42.066c.305-.129,17.5-26,17.5-26l-4.38,196.679H300.191l-3.626-195.989,14.858,25.7s42.5-1.64,69.615-42.4c.044.3-74.665-126.235-74.665-126.235L254.83,25.549,230.9,5.365H151.524Z" transform="translate(-4.667 -5.365)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <path id="Path_18004" data-name="Path 18004" d="M65.583,25.537l43.35,52.507,22.5-15.738,23.849,15.738,39.909-52.451L171.208,5.365H162.8L131.433,45.651,98.575,5.365H91.659Z" transform="translate(55.116 -5.365)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <line id="Line_849" data-name="Line 849" y1="75.969" transform="translate(186.544 40.286)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+    </g>
+  </g>
+</svg>

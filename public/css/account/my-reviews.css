@@ -1,0 +1,569 @@
+.my-reviews .list-reviews-order,
+.my-reviews .list-reviews-chat{
+    margin-top: 25px;
+}
+.my-reviews .order-review-item,
+.my-reviews .chat-review-item {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 6px #0000000F;
+    border: 0.5px solid #D8D7D7;
+    padding: 15px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+.my-reviews .review-header p{
+    display: inline-block;
+    width: calc(50% - 2px);
+    vertical-align: middle;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.my-reviews .review-header p.status-name{
+    color: #0DBC00;
+}
+.my-reviews .review-content {
+    position: relative;
+    padding-bottom: 0px;
+    border-bottom: 0px;
+    cursor: pointer;
+}
+.my-reviews .review-content .thumb{
+    width: 142px;
+    aspect-ratio: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.my-reviews .review-content .thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.my-reviews .review-content .order-info{
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 157px);
+}
+.my-reviews .review-content .order-info p,
+.my-reviews .review-content .chat-info p{
+    margin-bottom: 5px;
+}
+.my-reviews .review-content .order-info p label,
+.my-reviews .review-content .chat-info p label{
+    margin-bottom: 0px;
+    width: 120px;
+}
+.my-reviews .review-content .order-info p span,
+.my-reviews .review-content .chat-info p span{
+    font-size: 12px;
+}
+.my-reviews .review-content .chat-info .rate {
+    width: 40px;
+    height: 40px;
+}
+.my-reviews .review-content .div-button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    width: 160px;
+}
+.my-reviews .review-content button{
+    width: 100%;
+    border: 1px solid rgb(112, 112, 112);
+}
+.modal__review__header__content.my-reviews {
+    width: 100% !important;
+}
+.modal__review__header__content.my-reviews h3{
+    font-weight: 600;
+    text-align: center;
+}
+.modal__review__header__content.my-reviews .review-header.mb-5 {
+    margin-bottom: 5px !important;
+}
+.modal__review__header__content.my-reviews .review-content .thumb{
+    width: 100px;
+    margin-right: 10px;
+}
+.modal__review__header__content.my-reviews .review-content p{
+    font-size: 16px !important;
+    text-align: left !important;
+    margin-bottom: 0px !important;
+}
+.modal__review__header__content.my-reviews .review-content p.status-name {
+    text-align: right !important;
+}
+.modal__review__header__content.my-reviews hr.mb-10 {
+    margin-bottom: 10px;
+}
+.modal__review__header__content.my-reviews hr {
+    margin-bottom: 0px;
+    margin-left: -50px;
+    width: calc(100% + 100px);
+}
+.chat-review-modal-bg,
+.chat-detail-modal-bg,
+.chat-img-modal-bg  {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 1046;
+}
+.chat-img-modal-bg {
+    z-index: 1048;
+}
+.chat-review-modal,
+.chat-detail-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1047;
+    background-color: #fff;
+    padding: 15px;
+    min-width: 320px;
+}
+
+.chat-detail-modal {
+    top: 50%;
+    left: 50%;
+    min-width: 320px;
+    height: 90%;
+    width: 60%;
+}
+.chat-review-modal button.close,
+.chat-detail-modal button.close{
+    position: relative;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border: none !important;
+    background-color: #dcdcdc;
+    color: #a9a9a9;
+    font-weight: 600;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+.chat-detail-modal button.close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.chat-review-modal .rate-content p {
+    text-align: center;
+}
+
+.chat-review-modal .rate-content p .red {
+    font-size: 16px;
+    color: #FF2C00;
+}
+
+.chat-review-modal .rate-content svg {
+    cursor: pointer;
+}
+
+.chat-review-modal .rate-content svg {
+    margin-left: 10px;
+}
+
+.chat-review-modal .rate-content svg:first-child {
+    margin-left: 10px;
+}
+
+.chat-review-modal .review-content .div-button-review {
+    position: unset;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    height: 40px;
+}
+
+.chat-detail-modal .col-left{
+    display: inline-block;
+    vertical-align: top;
+    width: 210px;
+    height: 100%;
+}
+
+.chat-detail-modal .col-left h3{
+    padding-bottom: 10px;
+    border-bottom: solid 1px #dcdcdc;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chat-detail-modal .col-left .left-menu li{
+    padding: 10px;
+}
+
+.chat-detail-modal .col-left .left-menu li a{
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.chat-detail-modal .col-left .left-menu li a.inline-icon span{
+    width: calc(100% - 20px);
+    display: inline-block;
+}
+
+.chat-detail-modal .col-left .inline-icon .d-center {
+    display: inline-block !important;
+    vertical-align: middle;
+}
+
+.chat-detail-modal .col-left .inline-icon .d-center svg{
+    margin-top: 5px;
+}
+
+.chat-detail-modal .col-left .list-images {
+    margin-top: 10px;
+}
+
+.chat-detail-modal .col-left .list-images .text{
+    font-style: italic;
+}
+
+.chat-detail-modal .col-left .list-images .img-item {
+    width: calc(33.333333% - 3px);
+    aspect-ratio: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.chat-detail-modal .col-left .list-images .img-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chat-detail-modal .col-right{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 214px);
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.chat-detail-modal .col-right .convention {
+    border: solid 1px #dcdcdc;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0px 1px 3px #0000001A;
+}
+
+.chat-detail-modal .col-right .convention .left-info{
+    display: inline-block;
+    width: calc(100% - 135px);
+}
+
+.chat-detail-modal .col-right .convention .right-info{
+    display: inline-block;
+    width: 135px;
+}
+.chat-detail-modal .col-right .convention .left-info p,
+.chat-detail-modal .col-right .convention .right-info p{
+    margin-bottom: 5px;
+}
+
+.chat-detail-modal .col-right .convention .left-info p:last-child,
+.chat-detail-modal .col-right .convention .right-info p:last-child{
+    margin-bottom: 0px;
+}
+
+.chat-detail-modal .col-right .convention .left-info p .status-name {
+    color: #0DBC00;
+}
+
+.chat-detail-modal .col-right .convention .right-info svg{
+    position: relative;
+    top: 5px;
+    left: 2px;
+}
+
+.chat-detail-modal .col-right .chat{
+    height: calc(100% - 90px);
+    overflow: auto;
+    background: #f2f2f2;
+    padding: 10px;
+    position: relative;
+}
+
+.chat-detail-modal .col-right .chat.have-search{
+    height: calc(100% - 160px);
+}
+
+.chat-detail-modal .col-right .mes{
+    text-align: right;
+    margin-top: 10px;
+}
+
+.chat-detail-modal .col-right .split-date{
+    text-align: center;
+    position: relative;
+    margin-top: 10px;
+}
+
+.chat-detail-modal .col-right .split-date::after{
+    content: "";
+    position: absolute;
+    width: calc(50% - 60px);
+    right: 10px;
+    top: 50%;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+
+.chat-detail-modal .col-right .split-date::before{
+    content: "";
+    position: absolute;
+    width: calc(50% - 60px);
+    left: 10px;
+    top: 50%;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+
+.chat-detail-modal .col-right .mes.fm-mes{
+    text-align: left;
+}
+
+.chat-detail-modal .col-right .mes .chat-bubbles {
+    max-width: 60%;
+    display: inline-block;
+}
+
+.chat-detail-modal .col-right .mes .bubble {
+    position: relative;
+}
+
+.chat-detail-modal .col-right .mes .chat-bubbles .time {
+    vertical-align: middle;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -35px;
+    transform: translate(0px, -50%);
+    display: none;
+}
+
+.chat-detail-modal .col-right .mes .chat-bubbles .bubble:last-child .time.show {
+    display: inline-block;
+}
+
+.chat-detail-modal .col-right .mes .chat-bubbles .content {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 10px;
+    background: #FFD500;
+    border-radius: 8px;
+    margin: 0px 10px 10px 10px;
+}
+
+.chat-detail-modal .col-right .mes .chat-bubbles .content .img-item{
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.chat-detail-modal .col-right .mes .chat-bubbles .content .img-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chat-detail-modal .col-right .mes .avatar{
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.chat-detail-modal .col-right .mes .avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-detail-modal .col-right .mes.fm-mes .chat-bubbles .content {
+    background: #ffffff;
+}
+
+.chat-detail-modal .col-right .mes.fm-mes .chat-bubbles .content p{
+    margin-bottom: 5px;
+}
+
+.chat-detail-modal .col-right .mes.fm-mes .chat-bubbles .content p:last-child{
+    margin-bottom: 0px;
+}
+
+.chat-detail-modal .col-right .mes.fm-mes .chat-bubbles .time {
+    left: unset;
+    right: -35px;
+}
+
+.chat-detail-modal .col-right .div-search {
+    padding: 10px;
+    box-shadow: 0px 3px 5px #00000029;
+    width: 100%;
+    background: #fff;
+    margin-top: 10px;
+}
+
+.chat-detail-modal .col-right .bg{
+    padding-top: 1px;
+    z-index: 1000000;
+    position: relative;
+    background-color: #f2f2f2;
+}
+
+.chat-detail-modal .col-right .div-search .d-center {
+    position: absolute;
+    top: 31px;
+    left: 20px;
+}
+
+.chat-detail-modal .col-right .div-search .input-search{
+    border-color: #333;
+    border-width: 0.5px;
+    padding-left: 35px;
+    outline: 0 !important;
+    color: #333;
+    box-shadow: none;
+    width: calc(100% - 100px);
+    display: inline-block;
+}
+
+.chat-detail-modal .col-right .div-search .div-button{
+    width: 80px;
+    height: 38px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.chat-detail-modal button.show-menu {
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    background: #dcdcdc;
+    color: #a9a9a9;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.chat-detail-modal span.close-menu {
+    background: #dcdcdc;
+    color: #a9a9a9;
+    position: absolute;
+    right: 0px;
+    padding: 5px 10px;
+    top: -1px;
+    font-weight: 100;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+}
+
+.img-in-modal {
+    position: fixed;
+    background-color: transparent;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    z-index: 1049;
+}
+
+.img-in-modal img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img-in-modal .close-img{
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff !important;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    padding: 5px 10px 7px 10px;
+    line-height: 20px;
+    background: #000;
+}
+
+@media screen and (max-width: 1030px) {
+    .chat-detail-modal {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 784px) {
+    .chat-detail-modal {
+        width: 100%;
+        height: 100%;
+    }
+    .chat-detail-modal.mobile .col-left {
+        position: absolute;
+        background: #fff;
+        z-index: 1000001;
+        top: 0;
+        left: -280px;
+        padding-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 280px;
+        box-shadow: 2px 0px 5px #00000017;
+        transition: all ease 0.3s;
+    }
+    .chat-detail-modal.mobile.show-menu .col-left {
+        left: 0px;
+    }
+    .chat-detail-modal.mobile .col-left h3{
+        position: relative;
+    }
+    .chat-detail-modal.mobile .col-right {
+        width: 100%;
+    }
+    .chat-detail-modal button.show-menu {
+        display: block;
+    }
+    
+    .chat-detail-modal span.close-menu {
+        display: block;
+    }
+}
+@media screen and (max-width: 590px) {
+    .my-reviews .order-review-item .review-content .div-button {
+        position: relative;
+        left: calc(100% - 160px);
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 413px) {
+    .my-reviews .order-review-item .review-content .thumb {
+        width: 120px;
+    }
+}

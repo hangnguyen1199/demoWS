@@ -1,0 +1,267 @@
+.branchlist-master-component {
+    height: -moz-calc(100vh - 162px);
+    height: -webkit-calc(100vh - 162px);
+    height: calc(100vh - 162px);
+}
+
+.branchlist-master-component .branchlist-wrapper {
+    width: 100%;
+    box-shadow: -3px 3px 6px #0000000f;
+    border: 0.5px solid #d8d7d7;
+}
+
+.branchlist-master-component .listing-wrapper {
+    width: 610px;
+    height: 100%;
+}
+
+.branchlist-master-component .map-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.branchlist-master-component .branchlist-wrapper {
+    flex-direction: row;
+}
+
+.branchlist-master-component .listing-component {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    width: 610px;
+}
+
+.branchlist-master-component .form-input--wrapper {
+    margin-top: unset !important;
+}
+.branchlist-master-component .form-input--wrapper .render-input {
+    padding-left: 20px;
+    border: 0.5px solid #d8d7d7 !important;
+    min-height: unset !important;
+    height: 64px !important;
+}
+
+.branchlist-master-component .input-branch-search {
+    height: 41px !important;
+    border: 0.1px solid #333333 !important;
+    border-radius: 4px;
+}
+
+.branchlist-master-component .input-branch-search input {
+    height: 41px !important;
+    background: unset !important;
+    width: 100%;
+}
+
+.branchlist-master-component .input-branch-search .form-input--wrapper {
+    width: 100%;
+    padding-right: 3px !important;
+    padding-left: 10px !important;
+}
+
+.branchlist-master-component .input-branch-search .render-input {
+    height: 41px !important;
+    padding: unset !important;
+    border-top: 0.1px solid #333333 !important;
+    border-left: unset !important;
+    border-right: unset !important;
+    border-bottom: 0.1px solid #333333 !important;
+    border-radius: 0%;
+}
+
+.branchlist-master-component .input-branch-search .render-input .d-center {
+    display: block !important;
+}
+
+.branchlist-master-component .input-branch-search:focus-within {
+    border-color: #ff2c00 !important;
+    box-shadow: 0 0 0 0.1rem rgb(253 204 100 / 51%) !important;
+}
+
+.branchlist-master-component .input-branch-search .render-input:focus-within {
+    border-top: 0.1px solid #ff2c00 !important;
+    border-bottom: 0.1px solid #ff2c00 !important;
+    border-left: unset !important;
+    border-right: unset !important;
+    box-shadow: unset !important;
+    border-radius: 0%;
+}
+
+.branchlist-master-component .branch-row-wrapper {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.branchlist-master-component .branch-row-wrapper {
+    border-bottom: 1px solid #d8d7d7;
+}
+
+.branchlist-master-component .distance-from-user {
+    padding-left: 23px;
+    color: #0054fc;
+}
+
+.branchlist-master-component .branch-row-wrapper .info-row {
+    margin-bottom: 10px;
+}
+
+.branchlist-master-component .branch-row-wrapper .info-row {
+    margin-bottom: 10px;
+}
+
+.branchlist-master-component .branch-row-wrapper .info-row p {
+    margin-left: 5px;
+}
+
+.branchlist-master-component .branch-row-wrapper .info-row .offline-status {
+    border: 1px solid #707070;
+    border-radius: 11px;
+    color: #707070;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.branchlist-master-component .branch-row-wrapper .info-row .holiday-status {
+    border: 1px solid #ff2c00;
+    border-radius: 11px;
+    color: #ff2c00;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.branchlist-master-component .branch-list {
+    height: -moz-calc(100vh - 162px - 30px - 41px);
+    height: -webkit-calc(100vh - 162px - 30px - 41px);
+    height: calc(100vh - 162px - 30px - 41px);
+    overflow-y: scroll;
+}
+
+.branchlist-master-component .branch-row-wrapper:hover {
+    background-color: rgb(248, 244, 244);
+    cursor: pointer;
+}
+
+.branchlist-master-component .map-component {
+    position: relative;
+}
+
+.branchlist-master-component .map-component .branch-detail {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 30px;
+    background-color: #ffffff;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.branchlist-master-component .map-wrapper {
+    height: calc(100vh - 162px);
+    border-left: 0.5px solid #d8d7d7;
+}
+
+.branchlist-master-component .branch-row-wrapper .icon-style-normal {
+    width: 19px !important;
+    height: 25px !important;
+    object-fit: cover !important;
+}
+
+.branchlist-master-component .branch-row-wrapper .icon-style-small {
+    width: 19px !important;
+    height: 19px !important;
+    object-fit: cover !important;
+}
+.branchlist-master-component .map-component .branch-name {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.branchlist-master-component .map-component .branch-info .info-row {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.branchlist-master-component .map-component .branch-info .info-row p {
+    margin-left: 5px;
+}
+
+.branchlist-master-component .map-component .icon-style-normal {
+    width: 24px !important;
+    height: 31px !important;
+    object-fit: cover !important;
+}
+
+.branchlist-master-component .map-component .icon-style-small {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: cover !important;
+}
+
+.branchlist-master-component .map-component .distance-from-user {
+    padding-left: 30px;
+}
+.mobile-action-icon{
+    display:flex;
+    justify-content:flex-end;
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .branchlist-master-component .listing-wrapper {
+        width: 350px;
+        height: 100%;
+    }
+    .branchlist-master-component .listing-component {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 30px;
+        width: 350px;
+    }
+    .branchlist-master-component .icon-style-normal {
+        width: 19px !important;
+        height: 25px !important;
+        object-fit: cover !important;
+    }
+
+    .branchlist-master-component .icon-style-small {
+        width: 19px !important;
+        height: 19px !important;
+        object-fit: cover !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .branchlist-master-component .map-wrapper {
+        height: calc(100vh - 162px - 58px);
+    }
+    .branchlist-master-component .branchlist-wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .branchlist-master-component .listing-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .branchlist-master-component .listing-component {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        width: 100%;
+    }
+
+   
+
+    .branchlist-master-component .map-component .branch-detail {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+     .branchlist-master-component .map-wrapper {
+        height: calc(100vh - 162px - 450px);
+    }
+}

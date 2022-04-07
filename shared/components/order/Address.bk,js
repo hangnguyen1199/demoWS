@@ -1,0 +1,374 @@
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import PropTypes from 'prop-types';
+import ButtonLight from '@spo/components/common/button-light';
+import Image from '@spo/components/common/image';
+import AddNewAddressModal from './modal/AddNewAddressModal';
+import BranchAddressModal from './modal/BranchAddressModal';
+import ButtonMain from '../common/button-main';
+
+import OrderActions from '@spo/redux/order/action';
+import EventRegister, {
+    ADD_ADDRESS_POPUP,
+    EVENT_SHOW_POPUP,
+} from '../../utils/EventRegister';
+
+AddressComponent.propTypes = {
+    privateAddressList: PropTypes.array,
+    privateBranchList: PropTypes.array,
+    order: PropTypes.object,
+};
+
+AddressComponent.defaultProps = {
+    privateAddressList: [],
+    privateBranchList: [],
+    order: {},
+};
+
+function AddressComponent(props) {
+    const dispatch = useDispatch();
+    const { privateAddressList, order, privateBranchList } = props;
+    const orderTemp=useSelector(state=>state.Order?.tempOrder)
+    const Name_Address_Title = 'Địa chỉ nhận hàng';
+    const Name_Button_Change_Address = 'Thay đổi';
+    const Name_Button_Add_Address = '+ Thêm địa chỉ mới';
+    const Name_Button_Save_Address = 'Lưu';
+
+    const [isUpdateAddrMode, setIsUpdateAddrMode] = useState(false);
+    const [isShowAddAddressModel, setIsShowAddAddressModel] = useState(false);
+    const [isShowBranchModal, setIsShowBranchModal] = useState(false);
+    const [chosenAddressIndex, setChosenAddressIndex] = useState(0);
+    const [branch, setBranch] = useState({});
+    const [address, setAddress] = useState({});
+
+    const getBranch = () => {
+        if (
+            privateBranchList &&
+            privateBranchList.length > 0 &&
+            order.BranchId > 0
+        ) {
+            let index = privateBranchList.findIndex(function (e) {
+                return e.BranchId === order.BranchId;
+            });
+            if (index > -1) {
+                return privateBranchList[index];
+            }
+        }
+        return {};
+    };
+
+    const getAddress = () => {
+        if (
+            privateAddressList &&
+            privateAddressList.length > 0 &&
+            order.RecieveAddressId > 0
+        ) {
+            let index = privateAddressList.findIndex(function (e) {
+                return e.UserAddressId === order.RecieveAddressId;
+            });
+            if (index > -1) {
+                return privateAddressList[index];
+            }
+        }
+        return {};
+    };
+
+    const onSelectedBranch = (e) => {
+        let cloneOrder = { ...order };
+        if (cloneOrder.BranchId != e.BranchId) {
+            cloneOrder.BranchId = e.BranchId;
+            cloneOrder.RecieveAddressId = 0;
+            dispatch({
+                type: OrderActions.UPDATE_ORDER_VALUES,
+                order: cloneOrder,
+            });
+        }
+        setIsShowBranchModal(false);
+        setIsUpdateAddrMode(false);
+        dispatch({
+            type: OrderActions.SET_ORDER_ERROR_MESSAGE,
+            error: {
+                message: null,
+            },
+        });
+    };
+
+    const onSelectedAddress = (index) => {
+        setIsUpdateAddrMode(false);
+        let _address = privateAddressList[index ?? chosenAddressIndex] ?? {
+            UserAddressId: 0,
+        };
+        let cloneOrder = { ...order };
+        if (cloneOrder.RecieveAddressId != _address.UserAddressId) {
+            cloneOrder.BranchId = 0;
+            cloneOrder.RecieveAddressId = _address.UserAddressId;
+            dispatch({
+                type: OrderActions.UPDATE_ORDER_VALUES,
+                order: cloneOrder,
+            });
+        }
+        dispatch({
+            type: OrderActions.SET_ORDER_ERROR_MESSAGE,
+            error: {
+                message: null,
+            },
+        });
+    };
+
+    useEffect(() => {
+        setBranch(getBranch());
+        if (
+            order.RecieveAddressId == 0 &&
+            order.BranchId == 0 &&
+            privateAddressList &&
+            privateAddressList.length > 0  
+        ) {
+            let index = privateAddressList.findIndex(function (e) {
+                return e.IsDefault;
+            });
+            if (index < 0) {
+                index = 0;
+            }
+            setChosenAddressIndex(index);
+            onSelectedAddress(index);
+        }
+        setAddress(getAddress());
+    }, [order.BranchId, order.RecieveAddressId,privateAddressList]);
+
+    useEffect(() => {
+        if (orderTemp?.ProvinceId&&privateAddressList) {
+            let index = privateAddressList.findIndex(function (e) {
+                return (
+                    e.Lastname == orderTemp.Lastname &&
+                    e.Address == orderTemp.Address &&
+                    e.CommuneId == orderTemp.CommuneId &&
+                    e.DistrictId == orderTemp.DistrictId &&
+                    e.Phone == orderTemp.Phone &&
+                    e.ProvinceId == orderTemp.ProvinceId
+                )
+            })
+            if (index < 0) {
+                index = 0
+            }
+            setChosenAddressIndex(index)
+            onSelectedAddress(index)
+        }else{
+            let index = privateAddressList.findIndex(function (e) {
+                return e.IsDefault;
+            });
+            if (index < 0) {
+                index = 0;
+            }
+            setChosenAddressIndex(index);
+            onSelectedAddress(index);
+        }
+    }, [privateAddressList, orderTemp])
+
+    const handleShopPopupAddress = () => {
+        // setIsShowAddAddressModel(true)
+        EventRegister.emit(EVENT_SHOW_POPUP, {
+            type: ADD_ADDRESS_POPUP,
+            open: true,
+            payload: {
+                className: 'add-address-popup-wrap add-address-popup _mobile_screen order-master-component',
+                title: 'Thêm địa chỉ mới',
+                callback: (res) => {
+                    setChosenAddressIndex(res?.length - 1)
+                    // onSelectedAddress(res?.length - 1)
+                },
+            },
+        });
+    };
+    const _renderButtonUpdateAddress = () => {
+        return (
+            <div className="d-flex group-button-addr">
+                <ButtonLight
+                    className="btn-add-address btn-light-border text-uppercase mr-2"
+                    title={Name_Button_Add_Address}
+                    fontSize={14}
+                    onClick={handleShopPopupAddress}
+                />
+                <ButtonMain
+                    className="btn-size-small"
+                    title={Name_Button_Save_Address}
+                    fontSize={14}
+                    onClick={() => onSelectedAddress()}
+                />
+            </div>
+        );
+    };
+
+    const _renderOptionAddress = () => {
+        return (
+            <div>
+                {/* {_renderOptionBranchAddress()} */}
+                {/* <hr className="cross-line cross-line-address" /> */}
+                {_renderOptionPrivateAddress()}
+            </div>
+        );
+    };
+
+    const _renderOptionBranchAddress = () => {
+        return (
+            <>
+                <div
+                    className="d-flex justify-content-between align-items-center"
+                    onClick={() => {
+                        setIsShowBranchModal(true);
+                        setChosenAddressIndex(-1);
+                    }}>
+                    <div className="d-flex align-items-center">
+                        {chosenAddressIndex === -1 && (
+                            <Image
+                                src={`/images/icon/tick.svg`}
+                                style={{
+                                    width: 15,
+                                    paddingBottom: 3,
+                                    marginRight: 1,
+                                }}
+                            />
+                        )}
+                        <div
+                            className={` ${
+                                chosenAddressIndex === -1
+                                    ? 'ml-2 text-weight-bold'
+                                    : 'ml-4 color-text-gray text-weight-light'
+                            }`}>
+                            <p>Nhận tại cửa hàng</p>
+                            {order.BranchId > 0 && (
+                                <>
+                                    <p>{branch.Name}</p>
+                                    <p>{branch.FullAddress}</p>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                    <Image
+                        src={`/images/icon/arrow-right-light.svg`}
+                        style={{ width: 10, paddingBottom: 5 }}
+                    />
+                </div>
+            </>
+        );
+    };
+
+
+    const _renderOptionPrivateAddress = () => {
+        return (
+            <>
+                {privateAddressList.map((item, index) => {
+                    return (
+                        <div key={index}>
+                            <div
+                                className="d-flex align-items-center"
+                                onClick={() => setChosenAddressIndex(index)}>
+                                {chosenAddressIndex === index && (
+                                    <Image
+                                        lazyLoad={false}
+                                        src={`/images/icon/tick.svg`}
+                                        style={{
+                                            width: 15,
+                                            paddingBottom: 5,
+                                            marginRight: 1,
+                                        }}
+                                    />
+                                )}
+                                <div
+                                    className={` ${
+                                        chosenAddressIndex === index
+                                            ? 'ml-2 '
+                                            : 'ml-4 color-text-gray text-weight-light'
+                                    }`}>
+                                    <p>
+                                        {item.Lastname} {item.Firstname}
+                                    </p>
+                                    <p>{item.Phone}</p>
+                                    <p>{item.FullAddress}</p>
+                                </div>
+                            </div>
+                            {index !== privateAddressList.length - 1 && (
+                                <hr className="cross-line cross-line-address" />
+                            )}
+                        </div>
+                    );
+                })}
+            </>
+        );
+    };
+
+    const _renderChosenAddress = () => {
+        return (
+            <div>
+                {order.RecieveAddressId == 0 && order.BranchId == 0 && (
+                    <p>Chưa có địa chỉ nhận hàng</p>
+                )}
+                {order.RecieveAddressId > 0 && (
+                    <>
+                        <p>
+                            {address.Lastname} {address.Firstname}
+                        </p>
+                        <p>{address.Phone}</p>
+                        <p>{address.FullAddress}</p>
+                    </>
+                )}
+                {order.BranchId > 0 && (
+                    <>
+                        <p>Cửa hàng: {branch.Name}</p>
+                        <p>{branch.FullAddress}</p>
+                    </>
+                )}
+            </div>
+        );
+    };
+
+    return (
+        <div className="border-shadow px-3 py-3 addr-section">
+            {isShowAddAddressModel && (
+                <AddNewAddressModal
+                    open={isShowAddAddressModel}
+                    hide={() => setIsShowAddAddressModel(false)}
+                    title="Thêm địa chỉ mới"></AddNewAddressModal>
+            )}
+
+            {isShowBranchModal && (
+                <BranchAddressModal
+                    open={isShowBranchModal}
+                    hide={() => setIsShowBranchModal(false)}
+                    onSelectedBranch={onSelectedBranch}
+                    branchList={privateBranchList}
+                    title="Chọn địa điểm nhận hàng"></BranchAddressModal>
+            )}
+
+            <div className="d-flex justify-content-between align-items-baseline addr-title">
+                <div className="d-flex align-items-baseline">
+                    <Image
+                        src={`/images/icon/marker.svg`}
+                        style={{ width: 19, paddingBottom: 2 }}
+                    />
+                    <p className="mb-0 pl-2">
+                        {Name_Address_Title}
+                    </p>
+                </div>
+                {isUpdateAddrMode ? (
+                    _renderButtonUpdateAddress()
+                ) : (
+                    <ButtonMain
+                        className="btn-size-small"
+                        title={Name_Button_Change_Address}
+                        fontSize={14}
+                        onClick={() => setIsUpdateAddrMode(true)}
+                    />
+                )}
+            </div>
+            <hr className="cross-line"></hr>
+            <div className="addr-content">
+                {isUpdateAddrMode
+                    ? _renderOptionAddress()
+                    : _renderChosenAddress()}
+            </div>
+        </div>
+    );
+}
+
+export default AddressComponent;

@@ -1,0 +1,65 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import BreadCrumb from '@spo/components/common/breadcrumb';
+import VerticalTab from '@spo/components/spo-layout/vertical-tab';
+import useWindowSize from '@spo/lib/use-window-size';
+import { FormattedNumber } from 'react-intl';
+import Actions from '../../../redux/account/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import Empty from '@spo/components/account/order-management/empty';
+import TableDetail from '@spo/components/account/order-management/table/table-detail';
+import TableReturn from '@spo/components/account/order-management/table/table-return';
+import constants from '../../config/constants';
+
+const data_bread_crumb = [
+    { name: 'Trang chủ', path_name: '/' },
+    { name: 'Tài khoản', path_name: '/account' },
+];
+
+const OrderManagementDetailContainer = () => {
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const { orderDetail } = useSelector((state) => state.Account);
+
+    useEffect(() => {
+        const orderId = router.query?.id;
+        dispatch({
+            type: Actions.GET_ORDER_DETAIL,
+            data: {
+                orderId: orderId,
+            },
+        });
+    }, []);
+
+    const renderTable = (code) => {
+        switch (code) {
+            case constants.ORDER_STATUS.RETURNED:
+                return <TableReturn orderDetail={orderDetail} />;
+            default:
+                return <TableDetail orderDetail={orderDetail} />;
+        }
+    };
+
+    return (
+        <div className="account-page">
+            <BreadCrumb data={data_bread_crumb} />
+            <div className="common-container">
+                <div className="row">
+                    <div className="d-none d-md-block col-3">
+                        <VerticalTab />
+                    </div>
+                    <div className="col-12 p-0 p-md-1 col-md-9">
+                        {orderDetail?.Code ? (
+                            renderTable(orderDetail.StatusCode)
+                        ) : (
+                            <Empty />
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+export default OrderManagementDetailContainer;

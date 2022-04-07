@@ -1,0 +1,99 @@
+
+
+/* hocvv */
+
+
+@media only screen and (max-width: 768px){
+    .account-info-mobile .button-go-sign-up, .account-info-mobile .btn_ripple{
+        margin: 0px 5px;
+        padding:4px 6px;
+        border: none;
+    }
+    .account-info-mobile-contact{
+        padding: 0px 0px;
+        border-bottom: 4px solid #D8D7D7;
+        border-top: 4px solid #D8D7D7;
+    }
+    .account-info-mobile-cart-manage{
+        padding: 7px 0px 15px;
+    }
+    .account-info-mobile-avatar-box{
+        padding: 5px 0px;
+    }
+    .account-info-mobile-avatar-box>div{
+        padding: 10px 0px !important;
+    }
+    .account-info-mobile-progress{
+        padding: 10px 0px;
+    }
+    .account-info-mobile-progress>div{
+        position: relative;
+    }
+    .account-info-mobile-progress>div::before{
+        content: "";
+        height:1px;
+        width:80%;
+        position:absolute;
+        background-color:#D8D7D7;
+        bottom: -10px;
+        left: 50%;
+        transform:translateX(-50%)
+    }
+    .account-info-mobile-progress-second-row{
+        padding: 10px 0px 15px;
+    }
+
+    .account-info-other-info {
+        font-size: 14px;
+        padding: 10px 15px;
+        font-weight: 400;
+        border-top: 4px solid #D8D7D7;
+    }
+
+    .account-info-other-info .disabled{
+        background-color: unset !important;
+    }
+
+    /* user infor */
+
+    .account-info-detail ._card{
+        padding: 30px 0px 10px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .signin-signup .save-login .label_save_info{
+        font-weight:400;
+    }
+    .signin-signup #signin-signup-0,.signin-signup #signin-signup-1{
+        padding-top: 30px !important;
+        font-size:18px !important;
+    }
+    .signin-signup #signin-signup-0::after,
+    .signin-signup #signin-signup-1::after
+    {
+        width:inherit !important;
+        left:0px
+    }
+    .signin-signup .btn_ripple.btn-main{
+        opacity: 1 !important;
+        border: none;
+    }
+    .signin-signup hr {
+        border-bottom: 1px solid #d8d7d7;
+    }
+    .signin-signup .welcome {
+        padding-bottom: 45px;
+        padding-top: 60px !important;
+    }
+    .signin-signup .verify-otp ._sub-title4 span{
+        color:#0054FC !important;
+    }
+    .simple-select ._input span._placeholder{
+        font-weight:400;
+    }
+}
+@media only screen and (max-width: 340px){
+    .header-wrap-menu .item{
+        padding-right: 4px !important;
+    }
+}

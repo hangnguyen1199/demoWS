@@ -1,0 +1,263 @@
+const Image = dynamic(() => import('@spo/components/common/image'), {
+    ssr: false,
+});
+const Price = dynamic(() => import('@spo/components/utility/price'), {
+    ssr: false,
+});
+const ButtonDark = dynamic(() => import('../common/button-dark'), {
+    ssr: false,
+});
+const QuantityBox = dynamic(() => import('../item/quantity-box'), {
+    ssr: false,
+});
+const SimpleModal = dynamic(() => import('../common/simple-modal'), {
+    ssr: false,
+});
+const RemainingSold = dynamic(
+    () => import('@spo/components/utility/remaining-sold'),
+    {
+        ssr: false,
+    },
+);
+import CartActions from '@spo/redux/cart/action';
+import dynamic from 'next/dynamic';
+import { PropTypes } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import CustomFrame from '../common/custom-frame';
+import ColorBoxImage from '../item/color-box-image';
+import SizeBoxDetail from '../item/size-box-detail';
+import Utils from '../../utils/utils';
+
+/**
+ * ****************************************************************************
+ * HaiDT ModalPickStock CODE
+ * modal-pick-stock.js
+ *
+ * description		:
+ * created at		:	2021-12-12
+ * created by		:	HaiDT
+ * package			:	spo\shared\components\spo-layout\modal-pick-stock.js
+ * copyright			:	Copyright (c) HaiDT
+ * version			:	1.0.0
+ * ****************************************************************************
+ */
+function ModalPickStock(props) {
+    const dispatch = useDispatch();
+    const {
+        show,
+        data: { currentItem },
+    } = props;
+
+    const [active, setActive] = useState(null);
+    const [quantity, setQuantity] = useState(1);
+    const [sizeActive, setSizeActive] = useState(null);
+    const [colorActive, setColorActive] = useState(null);
+
+    useEffect(() => {
+        if (sizeActive != null && colorActive != null) {
+            setActive(true);
+        } else {
+            setActive(false);
+        }
+    }, [colorActive, sizeActive]);
+    useEffect(() => {
+        if (currentItem?.Id) {
+            setColorActive(currentItem?.info?.ColorId);
+            loadDataByColor(currentItem?.info?.ColorId)
+        }
+    }, [currentItem?.info?.ProductId]);
+
+    //----------------------------------------------
+    // Function
+    //----------------------------------------------
+    const loadDataByColor = (colorId) => {
+        dispatch({
+            type: CartActions.LOAD_CURRENT_ITEM_STOCK,
+            data: {
+                ProductId: currentItem.Id,
+                ColorId: colorId,
+            },
+            success: (resData) => {
+                if (resData.SizeId) {
+                    setSizeActive(resData.SizeId);
+                    dispatch({
+                        type: CartActions.LOAD_CURRENT_ITEM_STOCK,
+                        data: {
+                            ProductId: currentItem.Id,
+                            ColorId: colorId,
+                            SizeId: resData.SizeId,
+                        },
+                    });
+                }
+            },
+        });
+    };
+    const onClose = () => {
+        dispatch({ type: CartActions.TOGGLE_PICK_STOCK });
+        setSizeActive(null);
+        setColorActive(null);
+        setActive(null);
+        setQuantity(1);
+    };
+    const onChangeQuantity = (number) => {
+        setQuantity(number);
+    };
+    const onAddCart = () => {
+        let productInfo = {};
+        productInfo.ProductId = currentItem.Id;
+        productInfo.ColorId = colorActive;
+        productInfo.SizeId = sizeActive;
+        productInfo.Quantity = quantity;
+        dispatch({
+            type: CartActions.ADD_CART_BY_STOCK,
+            data: { productInfo: productInfo },
+        });
+        setSizeActive(null);
+        setColorActive(null);
+        setActive(null);
+        setQuantity(1);
+    };
+    const onChangeSize = (sizeId) => {
+        setSizeActive(sizeId);
+        setQuantity(1);
+        dispatch({
+            type: CartActions.LOAD_CURRENT_ITEM_STOCK,
+            data: {
+                ProductId: currentItem.Id,
+                ColorId: colorActive,
+                SizeId: sizeId,
+            },
+        });
+    };
+    const onChangeColor = (item) => {
+        setColorActive(item.ColorId);
+        loadDataByColor(item.ColorId);
+        setQuantity(1);
+    };
+    return (
+        <SimpleModal
+            className="modal-pick-stock"
+            title={'Thêm vào giỏ hàng'}
+            open={show}
+            onClose={onClose}
+            footer={
+                <div style={{ width: '100%', padding: '0 30px' }}>
+                    <ButtonDark
+                        title="Thêm vào giỏ"
+                        disabled={
+                            !active || currentItem?.info.Quantity < quantity || currentItem?.info.Quantity == 0
+                        }
+                        onClick={onAddCart}
+                        style={{ width: '100%', height: 39 }}
+                    />
+                </div>
+            }>
+            <div
+                className="col-md-6 px-0 pr-0 pr-md-3"
+                style={{ marginTop: 15 }}>
+                <div className='main-image-wrap'>
+                    <CustomFrame ratio={339 / 286}>
+                        <Image
+                            lazyLoad={false}
+                            // width={286}
+                            // height={339}
+                            src={currentItem?.info?.Image}
+                            className="w-100 h-100"
+                        />
+                    </CustomFrame>
+                </div>
+            </div>
+            <div className="col-md-6 px-0" style={{ marginTop: 15 }}>
+                <div
+                    className="d-start"
+                    style={{
+                        fontWeight: 500,
+                        fontSize: 20,
+                        paddingBottom: 5,
+                        lineHeight: '24px'
+                    }}>
+                    <span>{currentItem?.Name}</span>
+                </div>
+                <div
+                    className="d-start"
+                    style={{
+                        fontWeight: 400,
+                        fontSize: 16,
+                        lineHeight: '16px',
+                    }}>
+                    <span>{currentItem?.SKU}</span>
+                </div>
+                <div className="d-start">
+                    <div className="">
+                        <Price
+                            oldPrice={
+                                currentItem?.info?.MaxPrice ??
+                                currentItem?.MaxPrice
+                            }
+                            price={
+                                currentItem?.info?.MinPrice ??
+                                currentItem?.MinPrice
+                            }
+                        />
+                    </div>
+                </div>
+                <div className="d-start"  style={{ marginBottom: 20 }}>
+                    <RemainingSold
+                        remaining={
+                            currentItem?.info?.Quantity ??
+                            currentItem?.TotalQuantity
+                        }
+                        sold={
+                            currentItem?.info?.NumberOfOrders ??
+                            currentItem?.NumberOfOrders
+                        }
+                    />
+                    {Utils.renderWarningText(
+                        currentItem?.info?.Quantity,
+                        quantity,
+                    )}
+                </div>
+                <div className="section_color">
+                    <ColorBoxImage
+                        colors={currentItem?.info?.Colors}
+                        onChangeColor={onChangeColor}
+                        active={colorActive}
+                    />
+                </div>
+                <div className="section_size">
+                    <SizeBoxDetail
+                        sizes={currentItem?.info?.Sizes}
+                        onChangeSize={onChangeSize}
+                        active={sizeActive}
+                    />
+                </div>
+
+                <div className="section_ship section_quantity wrap ">
+                    <span
+                        className="title"
+                        style={{ fontWeight: 500, fontSize: 16 }}>
+                        Số lượng
+                    </span>{' '}
+                    <QuantityBox
+                        disabled={currentItem?.TotalQuantity < quantity}
+                        size={30}
+                        max={currentItem?.info?.Quantity}
+                        onChange={onChangeQuantity}
+                        value={quantity}
+                    />
+                </div>
+            </div>
+        </SimpleModal>
+    );
+}
+
+ModalPickStock.propTypes = {
+    currentItem: PropTypes.object,
+    show: PropTypes.bool,
+};
+ModalPickStock.defaultProps = {
+    currentItem: {},
+    show: false,
+};
+export default ModalPickStock;

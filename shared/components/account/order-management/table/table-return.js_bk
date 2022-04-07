@@ -1,0 +1,191 @@
+import Link from 'next/link';
+import React, { useState } from 'react';
+import useWindowSize from '@spo/lib/use-window-size';
+import IconArrowLeftShort from '@spo/components/common/icon-arrow-left-short';
+import CancelModal from '../modal/cancel-modal';
+import { Field, reduxForm } from 'redux-form';
+import RenderCheckmark from '../render-checkmark';
+import { FormattedNumber } from 'react-intl';
+import RenderQuantityInput from '../render-quantity-input';
+import UploadMultipleImages from '../upload-multiple-images';
+
+const ComponentItem = (props) => {
+    const { index, item } = props;
+    const { width } = useWindowSize();
+
+    return (
+        <div className="item-main">
+            <div className="main-table-detail">
+                <Field
+                    name={`Return[${index}][ProductId]`}
+                    component={RenderCheckmark}
+                    defaultValue={item?.ProductSKU}
+                />
+                <img
+                    src={item?.Thumb}
+                    alt="svg"
+                    width={120}
+                    height={120}
+                    className="icon_add"
+                />
+                <div className="main-table-detail-item">
+                    <p>{item?.ProductName}</p>
+                    <p className="text-size-min">{item?.ProductSKU}</p>
+                    <p>
+                        Màu :{item?.Color} &nbsp;&nbsp;|&nbsp;&nbsp; Size :
+                        {item?.Size}
+                    </p>
+                    {width > 640 ? null : (
+                        <>
+                            <div className="price">
+                                <del>380.000</del>{' '}
+                                <p className="current-price">
+                                    <FormattedNumber
+                                        value={item?.PaymentPrice}
+                                    />
+                                    <span className="current">VND</span>
+                                </p>
+                            </div>
+                            <Field
+                                component={RenderQuantityInput}
+                                name={`Return[${index}][Quantity]`}
+                                defaultValue={item?.Quantity}
+                            />
+                        </>
+                    )}
+                </div>
+            </div>
+            {width > 767 ? (
+                <>
+                    <div className="main-table-price">
+                        <FormattedNumber value={item?.PaymentPrice} />
+                        <span className="current">VND</span>
+                    </div>
+                    <Field
+                        component={RenderQuantityInput}
+                        name={`Return[${index}][Quantity]`}
+                        defaultValue={item?.Quantity}
+                    />
+                    <div className="main-table-total">
+                        760.000 <span>VND</span>
+                    </div>
+                </>
+            ) : null}
+        </div>
+    );
+};
+const TableReturn = (props) => {
+    const { orderDetail, handleSubmit } = props;
+    const [openModal, setOpenModal] = useState(false);
+    const [textChoice, setTextChoice] = useState('');
+    const { width } = useWindowSize();
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
+    const handelOpenModal = () => {
+        setOpenModal(true);
+    };
+    const handleChoice = (value) => {
+        setTextChoice(value);
+        setOpenModal(false);
+    };
+    const onSubmit = (value) => {
+        console.log(value);
+    }
+    return (
+        <div className="order-management">
+            {openModal && (
+                <CancelModal
+                    handleClick={handleChoice}
+                    hide={handleCloseModal}
+                />
+            )}
+            <div className="order-management-header">
+                <Link href="#">
+                    <div className="d-flex align-items-center">
+                        <IconArrowLeftShort fontSize={40} /> Quản lý đơn hàng
+                    </div>
+                </Link>
+                <div className="order-management-delivery-return-container">
+                    <div className="order-management-delivery-title">
+                        <p>Vui lòng chon sản phẩm để Trả hàng / Hoàn tiền</p>
+                    </div>
+                    <div className="order-management-delivery-return-table">
+                        <div className="table">
+                            {width > 767 ? (
+                                <>
+                                    <div className="item-header">
+                                        <div className="header-table-detail">
+                                            <p>Sản Phẩm</p>
+                                        </div>
+                                        <div className="header-table-price">
+                                            <p>Giá</p>
+                                        </div>
+                                        <div className="header-table-quantity">
+                                            <p>Số Lượng</p>
+                                        </div>
+                                        <div className="header-table-total">
+                                            <p>Tổng Thanh Toán</p>
+                                        </div>
+                                    </div>
+                                </>
+                            ) : null}
+                            <div className="order-number">
+                                <div>
+                                    Số hóa đơn:{' '}
+                                    <span className="black-strong">
+                                        {orderDetail.Code}
+                                    </span>
+                                </div>
+                                <p className="blue-strong">
+                                    {orderDetail.OrderStatusName}
+                                </p>
+                            </div>
+                            <div className="main-table">
+                                {orderDetail?.OrderDetails?.map(
+                                    (item, index) => (
+                                        <ComponentItem
+                                            key={index}
+                                            item={item}
+                                            index={index}
+                                        />
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row-select-upload">
+                        <div className="select-item-reason">
+                            <div className="select-item-reason-row-top">
+                                <span className="text-font-black-600">
+                                    Lý Do
+                                </span>
+                                <p
+                                    className="cursor-pointer"
+                                    onClick={handelOpenModal}>
+                                    Chọn lý do
+                                </p>
+                            </div>
+                            <p>{textChoice}</p>
+                        </div>
+                        <div className="upload-item-reason">
+                            <p>
+                                Vui lòng đăng tải hình ảnh đoạn chat rõ ràng,
+                                thể hiện đúng tình trạng sản phẩm
+                            </p>
+                            <Field
+                                name={`Files`}
+                                component={UploadMultipleImages}
+                                maxFiles={5}
+                                maxFileSize={3 * 1024 * 1024}
+                            />
+                            <button onClick={handleSubmit(onSubmit)}>Hoàn thành</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+export default reduxForm({ form: 'ReturnForm' })(TableReturn);

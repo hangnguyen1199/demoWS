@@ -1,0 +1,128 @@
+import { useEffect , useState } from 'react';
+import { useRouter } from 'next/router';
+import VerticalTab from '@spo/components/spo-layout/vertical-tab';
+import Link from 'next/link';
+import IconArrowLeftShort from '@spo/components/common/icon-arrow-left-short';
+import IconAddressDelivery from '../../components/common/icon-address-delivery';
+import BreadCrumb from '@spo/components/common/breadcrumb';
+import useWindowSize from '@spo/lib/use-window-size';
+import { FormattedNumber } from 'react-intl';
+import Actions from '../../../redux/account/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import Empty from '@spo/components/account/order-management/empty';
+import DeliverySteps from '@spo/components/account/order-management/delivery-steps';
+import constants from '../../config/constants';
+import PaymentMethodIconUrl from '@spo/public/images/icon/ic_payment_method.svg';
+import ButtonGroups from '../../components/account/order-management/button-groups';
+import TableReturn from './../../components/account/order-management/table/table-return';
+import CancelModal from '../../components/account/order-management/modal/cancel-modal';
+
+
+const data_bread_crumb = [
+    { name: 'Trang chủ', path_name: '/' },
+    { name: 'Tài khoản', path_name: '/account' },
+];
+
+export default function OrderManagementReturnDetail() {
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const { orderDetail } = useSelector((state) => state.Account);
+    const [openModal, setOpenModal] = useState(false);
+    const [textChoice, setTextChoice] = useState('');
+    const { width } = useWindowSize();
+    useEffect(() => {
+        const orderId = router.query?.id;
+    }, []);
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
+    const handelOpenModal = () => {
+        setOpenModal(true);
+    };
+    const handleChoice = (value) => {
+        setTextChoice(value);
+        setOpenModal(false);
+    };
+    return (
+        <>
+            {openModal && (
+                <CancelModal
+                    handleClick={handleChoice}
+                    hide={handleCloseModal}
+                />
+            )}
+            <div className="account-page">
+                <BreadCrumb data={data_bread_crumb} />
+                <div className="common-container">
+                    <div className="row">
+                        <div className="d-none d-md-block col-3">
+                            <VerticalTab />
+                        </div>
+                        <div className="col-12 p-0 p-md-1 col-md-9">
+                            <div className="order-management">
+                                <div className="order-management-header">
+                                    <Link href="#">
+                                        <div className="d-flex align-items-center">
+                                            <IconArrowLeftShort fontSize={40} />{' '}
+                                            Quản lý đơn hàng
+                                        </div>
+                                    </Link>
+                                    <div className="order-management-delivery-return-container">
+                                        <div className="order-management-delivery-title">
+                                            <p>
+                                                Vui lòng chon sản phẩm để Trả
+                                                hàng / Hoàn tiền
+                                            </p>
+                                        </div>
+                                        <div className="order-management-delivery-return-table">
+                                            {/* table return */}
+                                            <TableReturn />
+                                        </div>
+                                        <div className="row-select-upload">
+                                            <div className="select-item-reason">
+                                                <div className="select-item-reason-row-top">
+                                                    <span className="text-font-black-600">
+                                                        Lý Do
+                                                    </span>
+                                                    <p
+                                                        className="cursor-pointer"
+                                                        onClick={
+                                                            handelOpenModal
+                                                        }>
+                                                        Chọn lý do
+                                                    </p>
+                                                </div>
+                                                <p>{textChoice}</p>
+                                            </div>
+                                            <div className="upload-item-reason">
+                                                <p>
+                                                    Vui lòng đăng tải hình ảnh
+                                                    đoạn chat rõ ràng, thể hiện
+                                                    đúng tình trạng sản phẩm
+                                                </p>
+                                                <div className="img-upload">
+                                                    <div className="img-upload-hidden">
+                                                        <div className="img"></div>
+                                                        <div className="img"></div>
+                                                        <div className="img"></div>
+                                                        <div className="img"></div>
+                                                        <div className="img"></div>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    Đính kèm tối đa 05 hình ảnh
+                                                    /video (3MB)
+                                                </p>
+                                                <button>Hoàn thành</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}

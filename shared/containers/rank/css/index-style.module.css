@@ -1,0 +1,17 @@
+.rankHeader{
+    color: #000;
+    font-size:18px;
+    font-weight:400;
+}
+.headerItem{
+    padding: 0px 20px;
+    border-bottom: 2px solid transparent;
+}
+.active{
+    border-bottom: 2px solid #000;
+}
+@media only screen and (max-width:425px){
+    .headerItem{
+        font-size:15px
+    }
+}

@@ -1,0 +1,55 @@
+.img_daily_silver_circle {
+  width: 30;
+}
+
+.opacity_0_7 {
+  opacity: 0.7;
+}
+
+.reward_value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 13px;
+}
+
+.reward_date {
+  max-width: 30px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.reward_gold_date {
+  max-width: 30px;
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 4px;
+  margin-top: 5px;
+}
+
+.font_size_15 {
+  font-size: 15px;
+}
+
+.user_silver_coin_wrap {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.silver_coin {
+  width: 45px;
+  height: 45px;
+}
+
+.user_silver_coin {
+  padding-top: 5px;
+}
+
+.btn_achieve {
+  padding: 8px 0px;
+  background-color: #FFD500;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #00000029;
+}

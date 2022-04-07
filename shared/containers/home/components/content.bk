@@ -1,0 +1,191 @@
+import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import Display from '../../../components/common/display';
+
+const ListItems = dynamic(() => import('@spo/components/item/list-items'), {
+    ssr: false,
+});
+const ListLive = dynamic(() => import('@spo/components/item/list-live'), {
+    ssr: false,
+});
+const ListNews = dynamic(() => import('@spo/components/item/list-news-promo'), {
+    ssr: false,
+});
+const BannerSilder = dynamic(
+    () => import('@spo/components/home/banner-silder'),
+    {
+        ssr: false,
+    }
+);
+const HotCategories = dynamic(() => import('./hot-categories'), { ssr: false });
+const UpdatedHotCategories = dynamic(() => import('./updated-hot-categories'), { ssr: false });
+
+/**
+ * ****************************************************************************
+ * HAIDT Content CODE
+ * content.js
+ *
+ * description		:
+ * updated at		:	2021-11-11
+ * updated by		:	HAIDT
+ * package			:	spo\shared\containers\home\components\content.js
+ * copyright			:	Copyright (c) HAIDT
+ * version			:	1.0.0
+ * ****************************************************************************
+ */
+const Content = (props) => {
+    const { Gender } = props
+    const { loading, data } = useSelector((state) => state.Home);
+    const SettingMaster = useSelector((state) => state.Common?.data?.settingMaster);
+ 
+    const [slides, setSlides] = useState([])
+    const {
+        data: { wishlistProducts },
+    } = useSelector((state) => state.Wishlist);
+    useEffect(() => {
+    }, [SettingMaster?.CategoriesInHomePage])
+    useEffect(() => {
+        let RootSlide = SettingMaster?.Slides
+        if (RootSlide) {
+            let defaultSlides = [...RootSlide]?.filter(x => x.GenderId == null);
+            let _slides = [...RootSlide]?.filter(x => x.GenderId == Gender);
+            setSlides(_slides.length > 0 ? _slides : defaultSlides);
+        }
+    }, [SettingMaster?.Slides])
+
+    // dummy data
+    let itemsLive = [];
+    return (
+        <div className="col-12 col-lg-12 px-0 px-lg-0 order-2 overflow-hidden home-content">
+            <div>
+                <div className="wrap_home_top" style={{ background: 'white' }}>
+                    <BannerSilder data={slides} />
+                    {/* <HotCategories></HotCategories>
+                    
+                    <div
+                        className="hr-border-top"
+                        style={{ borderTop: '2px outset' }}></div> */}
+                </div>
+                <div className="wrap_list_home px-0">
+                    <UpdatedHotCategories
+                        categoryList={SettingMaster?.CategoriesInHomePage}
+                        title={'MUA THEO THỂ LOẠI'}>
+                    </UpdatedHotCategories>
+                </div>
+
+                <div className="wrap_list_home">
+                    <ListItems
+                        lazy_offset={0}
+                        sectionTitle={'TÌM KIẾM HÀNG ĐẦU'}
+                        items={data.listSearchTop}
+                        loading={loading.listSearchTop}
+                        isFullWidth={false}
+                        wishlist={wishlistProducts}
+                        isViewInSlider={true}
+                        isBorderTop={false}
+                        textColor="#000000"
+                        seeAllPath="/product-list-top"
+                    />
+                </div>
+                <div className="wrap_list_home">
+                    <ListItems
+                        lazy_offset={0}
+                        sectionTitle={'Giờ Vàng'}
+                        items={data.goldenHourProducts}
+                        loading={loading.loadingGoldenHourProduct}
+                        isFullWidth={false}
+                        wishlist={wishlistProducts}
+                        isViewInSlider={true}
+                        isBorderTop={true}
+                        isShowCountTime={true}
+                        textColor="#000000"
+                        seeAllPath="/product-list-golden-hour"
+                    />
+                </div>
+                <div className="wrap_list_home">
+                    <ListLive
+                        lazy_offset={0}
+                        sectionTitle={'FM LIVE'}
+                        items={itemsLive}
+                        isBorderTop={true}
+                        loading={false}
+                        textColor="#000000"
+                    />
+                </div>
+                <div className="wrap_list_home">
+                    <ListItems
+                        lazy_offset={0}
+                        sectionTitle={'Siêu sale'}
+                        items={data.supperSaleProducts}
+                        loading={loading.loadingSupperSaleProduct}
+                        isFullWidth={false}
+                        isBorderTop={true}
+                        wishlist={wishlistProducts}
+                        isViewInSlider={true}
+                        isShowCountTime={true}
+                        textColor="#000000"
+                        seeAllPath="/product-list-supper-sale"
+                        className='col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xlg-2-5 px-3 _common_col'
+                    />
+                </div>
+                <div className="wrap_list_home">
+                    <ListItems
+                        lazy_offset={0}
+                        sectionTitle={'Sản phẩm mới'}
+                        items={data.newestProducts}
+                        loading={loading.loadingNewestProduct}
+                        isFullWidth={false}
+                        isBorderTop={true}
+                        isViewInSlider={true}
+                        wishlist={wishlistProducts}
+                        textColor="#000000"
+                        seeAllPath="/product-list-new"
+                    />
+                </div>
+                <div className="wrap_list_home">
+                    <ListItems
+                        lazy_offset={0}
+                        sectionTitle={'Xu hướng'}
+                        items={data.trendingProducts}
+                        loading={loading.loadingTrendingProduct}
+                        isViewInSlider={true}
+                        isFullWidth={false}
+                        isBorderTop={true}
+                        wishlist={wishlistProducts}
+                        textColor="#000000"
+                        seeAllPath="/product-list-trend"
+                    />
+                </div>
+                <div className="wrap_list_home promotion-home-block">
+                    <ListNews
+                        lazy_offset={0}
+                        sectionTitle={'KHUYẾN MÃI'}
+                        items={data.listPromotion}
+                        loading={loading.loadingPromotion}
+                        isFullWidth={false}
+                        isBorderTop={true}
+                        textColor="#000000"
+                        seeAllPath="/promotion"
+                        prefix="promotion"
+                    />
+                </div>
+                <div className="wrap_list_home no_min_height" >
+                    <ListNews
+                        lazy_offset={0}
+                        sectionTitle={'TIN TỨC'}
+                        items={data.listNews}
+                        loading={loading.loadingNewestProduct}
+                        isFullWidth={false}
+                        isBorderTop={true}
+                        textColor="#000000"
+                        seeAllPath="/news"
+                        prefix="news"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Content;

@@ -1,0 +1,104 @@
+.container{
+    height:auto;
+    width:32%;
+    box-shadow: 3px 3px 6px #0000000F;
+    border: 1px solid #D8D7D7;
+    border-radius: 10px;
+}
+.account{
+    position: relative;
+    height:338px;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+}
+.background{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+}
+.avatar{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    top: 0px;
+    left: 0px;
+}
+.avatarRatioContainer{
+    position: relative;
+    width: 50%;
+    padding-top:50%;
+}
+.avatarRatio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.image{
+    height:100%;
+    width: 100%;
+    object-fit:cover;
+}
+.name{
+    margin-top:20px;
+    font-size: 30px;
+    font-weight:500;
+    color: #333;
+}
+.point{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    width:100%;
+}
+.medal{
+    width:35%;
+    padding: 20px 0px;
+    border-right: 1px solid #D8D7D7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.pointItem{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 75%;
+    font-size:20px;
+    font-weight:500;
+    color:#333;
+}
+.pointIcon{
+    padding-right: 20px;
+    margin-top: 5px;
+}
+.pointIcon svg{
+    height:40px;
+    width: 40px;
+}
+@media only screen and (max-width:1200px){
+    .account{
+        height:300px;
+    }
+    .name{
+        font-size: 26px;
+    }
+    .medal{
+        padding: 15px 10px;
+    }
+    .pointIcon svg{
+        height:35px;
+        width: 35px;
+    }
+    .medal svg{
+        height:55px;
+    }
+}

@@ -1,0 +1,322 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import constants from '../../../config/constants';
+import IconDelivery from '../../common/icon-delivery';
+import ConfirmModal from './confirm-modal';
+import useWindowSize from '@spo/lib/use-window-size';
+import CancelModal from './cancel-modal';
+import { FormattedNumber } from 'react-intl';
+import ReviewModal from './modal/review-modal';
+
+const OrderButton = (props) => {
+    const { handleClick, text, className = 'btn' } = props;
+    return (
+        <button onClick={handleClick} className={className}>
+            {text}
+        </button>
+    );
+};
+const OrderTable = (props) => {
+    const { orders, handleCancel, customButton } = props;
+    const router = useRouter();
+    const [openConfirmModal, setOpenConfirmModal] = useState(false);
+    const [openCancelModal, setOpenCancelModal] = useState(false);
+    const [openReviewModal, setOpenReviewModal] = useState(true);
+    const { width } = useWindowSize();
+    const toggleConfirmModal = (code) => {
+        localStorage.setItem('OrderCode', code);
+        setOpenConfirmModal(!openConfirmModal);
+    };
+    const toggleCancelModal = (code) => {
+        localStorage.setItem('OrderCode', code);
+        setOpenCancelModal(!openCancelModal);
+    };
+    const handleConfirmModalClick = () => {
+        console.log('Confirm');
+    };
+    const toggleReviewModal = (code) => {
+        localStorage.setItem('OrderCode', code);
+        setOpenReviewModal(!openReviewModal);
+    };
+    const handleCancelModalClick = (cancelReason) => {
+        let orderCode = localStorage.getItem('OrderCode');
+        handleCancel(orderCode, cancelReason);
+        setOpenCancelModal(false);
+    };
+    const handleReviewModalClick = (reviewReason) => {
+        // let orderCode = localStorage.getItem('OrderCode');
+        // handleCancel(orderCode, reviewReason);
+        // setOpenReviewModal(false);
+    };
+    const handleRouter = (route, params) => {};
+    return (
+        <React.Fragment>
+            {openReviewModal && (
+                <ReviewModal
+                    active={openReviewModal}
+                    hide={toggleReviewModal}
+                    handleClick={handleReviewModalClick}
+                />
+            )}
+            {openConfirmModal && (
+                <ConfirmModal
+                    active={openConfirmModal}
+                    hide={toggleConfirmModal}
+                />
+            )}
+            {openCancelModal && (
+                <CancelModal
+                    active={openCancelModal}
+                    hide={toggleCancelModal}
+                    handleClick={handleCancelModalClick}
+                />
+            )}
+            <table className="table order-management-table">
+                <thead>
+                    {width > 767 && (
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Tổng thanh toán</th>
+                            <th></th>
+                        </tr>
+                    )}
+                </thead>
+                <tbody>
+                    {orders?.Orders.length > 0 &&
+                        orders?.Orders.map((item, index) => (
+                            <tr key={index}>
+                                <td>
+                                    <Link
+                                        href={`/account/order-management/${item.OrderId}`}>
+                                        <div className="order-product">
+                                            <p className="order-branch">
+                                                {item.BuyFrom}
+                                            </p>
+                                            <div className="order-info">
+                                                <div className="order-image">
+                                                    <img src={item?.Image} />
+                                                </div>
+                                                <div className="order-bill">
+                                                    <p>
+                                                        <span>Số hoá đơn</span>:
+                                                        <span>
+                                                            {item.OrderCode}
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span>Tiền hàng</span>:
+                                                        <span className="price">
+                                                            <FormattedNumber
+                                                                value={
+                                                                    item.OrderAmount
+                                                                }
+                                                            />
+
+                                                            <span className="unit">
+                                                                VND
+                                                            </span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span>Vận chuyển</span>:
+                                                        <span className="price">
+                                                            <FormattedNumber
+                                                                value={
+                                                                    item.ShippingPrice
+                                                                }
+                                                            />
+
+                                                            <span className="unit">
+                                                                VND
+                                                            </span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {item?.CancelBy &&
+                                                item.StatusCode ==
+                                                    constants.ORDER_STATUS
+                                                        .CANCEL && (
+                                                <div className="d-between">
+                                                    <p className="cancel-by">
+                                                            Đã huỷ bởi
+                                                        <span
+                                                            style={{
+                                                                color: `${
+                                                                    item.CancelBy ==
+                                                                        'FMPlus'
+                                                                        ? 'red'
+                                                                        : '#000'
+                                                                }`,
+                                                            }}>
+                                                            {item?.CancelBy}
+                                                        </span>
+                                                    </p>
+                                                    {width <= 767 && (
+                                                        <OrderButton
+                                                            text="Mua lại"
+                                                            className="btn-cancel"
+                                                        />
+                                                    )}
+                                                </div>
+                                            )}
+                                            {item?.Warehouse && (
+                                                <div className="d-between">
+                                                    <p className="order-warehouse">
+                                                        <IconDelivery
+                                                            color="#0054FC"
+                                                            fontSize={40}
+                                                        />
+                                                        <span
+                                                            style={{
+                                                                marginLeft: 5,
+                                                            }}>
+                                                            Đơn hàng đã đến kho
+                                                            {item?.Warehouse}
+                                                        </span>
+                                                    </p>
+                                                    {item.StatusCode ==
+                                                        constants.ORDER_STATUS
+                                                            .CONFIRM ||
+                                                        (item.StatusCode ==
+                                                            constants
+                                                                .ORDER_STATUS
+                                                                .DELIVERING && (
+                                                            <OrderButton
+                                                                text="Đã nhận được hàng"
+                                                                className="btn-cancel"
+                                                                handleClick={() =>
+                                                                    toggleConfirmModal(
+                                                                        item?.OrderCode,
+                                                                    )
+                                                                }
+                                                            />
+                                                        ))}
+                                                </div>
+                                            )}
+                                            {width < 767 && (
+                                                <React.Fragment>
+                                                    {(item.StatusCode ==
+                                                        constants.ORDER_STATUS
+                                                            .CONFIRMED ||
+                                                        item.StatusCode ==
+                                                            constants
+                                                                .ORDER_STATUS
+                                                                .CONFIRM) && (
+                                                        <div className="d-end">
+                                                            <OrderButton
+                                                                text="Huỷ đơn hàng"
+                                                                className="btn-cancel"
+                                                                handleClick={() =>
+                                                                    toggleCancelModal(
+                                                                        item.OrderCode,
+                                                                    )
+                                                                }
+                                                            />
+                                                        </div>
+                                                    )}
+                                                    {item.StatusCode ==
+                                                        constants.ORDER_STATUS
+                                                            .DELIVERING && (
+                                                        <div className="d-end">
+                                                            <OrderButton
+                                                                text="Huỷ đơn hàng"
+                                                                className="btn-cancel"
+                                                                handleClick={() =>
+                                                                    toggleCancelModal(
+                                                                        item.OrderCode,
+                                                                    )
+                                                                }
+                                                            />
+                                                        </div>
+                                                    )}
+                                                    {item.StatusCode ==
+                                                        constants.ORDER_STATUS
+                                                            .PROCESSING && (
+                                                        <div className="d-end">
+                                                            <OrderButton
+                                                                text="Xem chi tiết"
+                                                                className="btn-cancel"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </React.Fragment>
+                                            )}
+                                        </div>
+                                    </Link>
+                                </td>
+                                {width > 767 && (
+                                    <React.Fragment>
+                                        <td className="text-center">1</td>
+                                        <td className="text-center">
+                                            <span className="price">
+                                                <FormattedNumber
+                                                    value={item.TotalAmount}
+                                                />
+
+                                                <span className="unit">
+                                                    VND
+                                                </span>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <React.Fragment>
+                                                {(item.StatusCode <
+                                                    constants.ORDER_STATUS
+                                                        .CONFIRMED ||
+                                                    item.StatusCode ==
+                                                        constants.ORDER_STATUS
+                                                            .DELIVERING) && (
+                                                    <OrderButton
+                                                        text="Huỷ đơn hàng"
+                                                        className="btn-cancel"
+                                                        handleClick={() =>
+                                                            toggleCancelModal(
+                                                                item.OrderCode,
+                                                            )
+                                                        }
+                                                    />
+                                                )}
+                                                {item.StatusCode ==
+                                                    constants.ORDER_STATUS
+                                                        .DELIVERED && (
+                                                    <OrderButton
+                                                        text="Xác nhận đặt hàng"
+                                                        className="btn-received"
+                                                        handleClick={() =>
+                                                            toggleConfirmModal(
+                                                                item.OrderCode,
+                                                            )
+                                                        }
+                                                    />
+                                                )}
+                                                {item.StatusCode ==
+                                                    constants.ORDER_STATUS
+                                                        .CANCEL && (
+                                                    <OrderButton
+                                                        text="Mua lại"
+                                                        className="btn-cancel"
+                                                    />
+                                                )}
+                                                {item.StatusCode ==
+                                                    constants.ORDER_STATUS
+                                                        .PROCESSING && (
+                                                    <OrderButton
+                                                        text="Xem chi tiết"
+                                                        className="btn-cancel"
+                                                    />
+                                                )}
+                                            </React.Fragment>
+                                        </td>
+                                    </React.Fragment>
+                                )}
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
+        </React.Fragment>
+    );
+};
+export default OrderTable;

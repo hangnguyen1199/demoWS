@@ -1,0 +1,23 @@
+import dynamic from 'next/dynamic';
+import { routeGuard } from '@spo/lib/helper';
+import SpoLayout from '@spo/containers/layout/spo-layout';
+
+const OrderManagementDetailContainer = dynamic(
+    () =>
+        import(
+            '@spo/containers/account/order-management-detail'
+        ),
+    {
+        ssr: false,
+    },
+);
+
+const OrderManagementDetail = () => {
+    return <OrderManagementDetailContainer />;
+};
+OrderManagementDetail.Layout = SpoLayout;
+OrderManagementDetail.getInitialProps = async (context) => {
+    // await routeGuard(context, "guest")
+    return { initData: null };
+};
+export default OrderManagementDetail;

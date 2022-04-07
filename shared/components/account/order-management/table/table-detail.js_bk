@@ -1,0 +1,294 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import IconAddressDelivery from '@spo/components/common/icon-address-delivery';
+import IconArrowLeftShort from '@spo/components/common/icon-arrow-left-short';
+import constants from '../../../../config/constants';
+import IconShippingUrl from '@spo/public/images/icon/order-detail/ic_shipping.svg';
+import IconShippedUrl from '@spo/public/images/icon/order-detail/ic_shipped.svg';
+import IconOrderUrl from '@spo/public/images/icon/order-detail/ic_order.svg';
+import IconConfirmUrl from '@spo/public/images/icon/order-detail/ic_confirm.svg';
+import IconCancelUrl from '@spo/public/images/icon/order-detail/ic_cancel.svg';
+import PaymentMethodIconUrl from '@spo/public/images/icon/ic_payment_method.svg';
+import UseWindowSize from '@spo/lib/use-window-size';
+import { FormattedNumber } from 'react-intl';
+import DeliverySteps from '../delivery-steps';
+import ButtonGroups from '../button-groups';
+
+const TableDetail = (props) => {
+    const { orderDetail } = props;
+    const { width } = UseWindowSize();
+    const getContentByOrderStatus = (status) => {
+        switch (status) {
+            case constants.ORDER_STATUS.PROCESSING:
+                return 'FM đang chuẩn bị hàng cho bạn';
+            case constants.ORDER_STATUS.CANCEL:
+                return 'Đơn hàng này của bạn đã bị hủy.';
+            case constants.ORDER_STATUS.NEW:
+                return 'Đang chờ hệ thống xác nhận đơn hàng';
+            case constants.ORDER_STATUS.DELIVERING:
+                return 'Đơn hàng đang được giao đến bạn';
+            default:
+                return 'Cảm ơn bạn đã mua sắm tại FM';
+        }
+    };
+    const getIconByOrderStatus = (status) => {
+        switch (status) {
+            case constants.ORDER_STATUS.PROCESSING:
+                return <img src={IconShippingUrl} />;
+            case constants.ORDER_STATUS.CANCEL:
+                return <img src={IconCancelUrl} />;
+            case constants.ORDER_STATUS.NEW:
+                return <img src={IconConfirmUrl} />;
+            case constants.ORDER_STATUS.DELIVERING:
+            case constants.ORDER_STATUS.DELIVERED:
+                return <img src={IconShippedUrl} />;
+
+            default:
+                return <img src={IconOrderUrl} />;
+        }
+    };
+    const renderOrderAddress = (address) => {
+        let str = '';
+        if (address.Address) {
+            str += address.Address;
+        }
+        if (address.CommuneName) {
+            str += ',';
+            str += address.CommuneName;
+        }
+        if (address.DistrictName) {
+            str += ',';
+            str += address.DistrictName;
+        }
+        if (address.ProvinceName) {
+            str += ',';
+            str += address.ProvinceName;
+        }
+        return str;
+    };
+    return (
+        <div className="order-management">
+            <div className="order-management-header">
+                <Link href="#">
+                    <div className="d-flex align-items-center">
+                        <IconArrowLeftShort fontSize={40} /> Quản lý đơn hàng
+                    </div>
+                </Link>
+                <div className="order-management-notification">
+                    <div>
+                        <p className="title">{orderDetail.OrderStatusName}</p>
+                        <p className="content">
+                            {getContentByOrderStatus(orderDetail.OrderStatus)}
+                        </p>
+                    </div>
+                    <div>{getIconByOrderStatus(orderDetail.OrderStatus)}</div>
+                </div>
+                {orderDetail.OrderStatus.DELIVERING ==
+                    constants.ORDER_STATUS.DELIVERING && (
+                    <div className="order-management-delivery-title">
+                        <p className="title">Những lưu ý khi nhận hàng</p>
+                        <p>
+                            Nếu có vấn đề khi nhận đơn hàng , vui lòng gửi yêu
+                            cầu trả hàng/ hoàn tiền trong vòng 03 ngày kể từ khi
+                            đơn hàng giao thành công.
+                        </p>
+                    </div>
+                )}
+                <div className="order-management-delivery-container">
+                    <div className="row">
+                        <div className="info user-info">
+                            <div className="icon">
+                                <IconAddressDelivery />
+                            </div>
+                            <div className="content-box">
+                                <p className="title">Địa chỉ nhận hàng</p>
+                                <div className="content">
+                                    <p>{orderDetail.OrderAddress.FullName}</p>
+                                    <p>{orderDetail.OrderAddress.Phone}</p>
+                                    <p>
+                                        {renderOrderAddress(
+                                            orderDetail.OrderAddress,
+                                        )}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div style={{ marginLeft: 30 }}>
+                            <div className="d-none info delivery-info">
+                                <div className="content-box">
+                                    <p className="title">Mã vận đơn</p>
+                                </div>
+                            </div>
+                        </div> */}
+                    </div>
+                </div>
+            </div>
+            <table className="table order-management-table">
+                <thead>
+                    <tr className="">
+                        <th>Sản phẩm</th>
+                        {width > 767 && (
+                            <React.Fragment>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng</th>
+                            </React.Fragment>
+                        )}
+                    </tr>
+                </thead>
+                <tbody>
+                    {orderDetail?.OrderDetails?.map((item, index) => (
+                        <tr>
+                            <td>
+                                <div className="order-product">
+                                    <div className="order-info">
+                                        <div className="order-image">
+                                            <img src={item?.Thumb} />
+                                        </div>
+                                        <div className="order-bill">
+                                            <p className="product-name">
+                                                {item?.ProductName}
+                                            </p>
+                                            <p className="product-code">
+                                                {item?.ProductSKU}
+                                            </p>
+                                            <p className="product-class">
+                                                <span>
+                                                    Màu:
+                                                    {item?.Color}
+                                                </span>
+                                                <span>
+                                                    Size:
+                                                    {item?.Size}
+                                                </span>
+                                            </p>
+                                            {width < 767 && (
+                                                <React.Fragment>
+                                                    <p className="price">
+                                                        Giá:{' '}
+                                                        <FormattedNumber
+                                                            value={
+                                                                item?.SalePrice
+                                                            }
+                                                        />
+                                                        <span className="unit">
+                                                            VND
+                                                        </span>
+                                                    </p>
+                                                    <p className="text-center">
+                                                        Số lượng:
+                                                        {item?.Quantity}
+                                                    </p>
+                                                </React.Fragment>
+                                            )}
+                                        </div>
+                                    </div>
+                                    {width < 767 && (
+                                        <p>
+                                            Tổng tiền :{' '}
+                                            <FormattedNumber
+                                                value={
+                                                    item?.SalePrice *
+                                                    item?.Quantity
+                                                }
+                                            />{' '}
+                                            VND
+                                        </p>
+                                    )}
+                                </div>
+                            </td>
+                            {width > 767 && (
+                                <React.Fragment>
+                                    <td className="text-center">
+                                        <span className="price">
+                                            <FormattedNumber value={200000} />
+                                            <span className="unit">VND</span>
+                                        </span>
+                                    </td>
+                                    <td className="text-center">1</td>
+                                    <td className="text-center">
+                                        <span className="price">
+                                            <FormattedNumber value={200000} />
+                                            <span className="unit">VND</span>
+                                        </span>
+                                    </td>
+                                </React.Fragment>
+                            )}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            <div className="order-management-delivery-container">
+                <div className="row">
+                    <div className="info col-12 col-md-4 order-info">
+                        <p className="d-between price">
+                            <span>Tổng tiền hàng</span>
+                            <span>
+                                <FormattedNumber
+                                    value={orderDetail.PaymentSalePrice}
+                                />
+                                <span className="unit">VND</span>
+                            </span>
+                        </p>
+                        <p className="d-between price">
+                            <span>Phí vận chuyển</span>
+                            <span>
+                                <FormattedNumber
+                                    value={orderDetail.ShipmentPrice}
+                                />
+                                <span className="unit">VND</span>
+                            </span>
+                        </p>
+                        <p className="d-between price">
+                            <span>Miễn phí vận chuyển</span>
+                            <span>
+                                <FormattedNumber
+                                    value={orderDetail.FreeShipDiscountPrice}
+                                />
+                                <span className="unit">VND</span>
+                            </span>
+                        </p>
+                        <p className="d-between price">
+                            <span>Giảm trừ</span>
+                            <span>
+                                <FormattedNumber
+                                    value={orderDetail.ReduceFee}
+                                />
+                                <span className="unit">VND</span>
+                            </span>
+                        </p>
+                        <p className="d-between price">
+                            <span>Tổng thanh toán</span>
+                            <span>
+                                <FormattedNumber
+                                    value={orderDetail.PaymentTotal}
+                                />
+                                <span className="unit">VND</span>
+                            </span>
+                        </p>
+                        <p className="d-between payment-method">
+                            <div className="d-center">
+                                <Image
+                                    src={PaymentMethodIconUrl}
+                                    width={20}
+                                    height={20}
+                                />
+                                <span>Phương thức thanh toán</span>
+                            </div>
+                            <span>{orderDetail.PaymentMethodName}</span>
+                        </p>
+                    </div>
+                    <div className="info delivery-step col-12 col-md-8">
+                        <div className="content-box">
+                            <p className="title">Mã đơn hàng</p>
+                        </div>
+                        <DeliverySteps {...orderDetail} />
+                        <ButtonGroups status={orderDetail?.OrderStatus} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default TableDetail;

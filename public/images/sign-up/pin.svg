@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.7" height="22.699" viewBox="0 0 16.7 22.699">
+  <g id="Group_8778" data-name="Group 8778" transform="translate(432.527 700.678)">
+    <g id="Group_3938" data-name="Group 3938" transform="translate(-432.177 -700.328)">
+      <rect id="Rectangle_1590" data-name="Rectangle 1590" width="16" height="13.537" transform="translate(0 8.462)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+      <path id="Rectangle_1591" data-name="Rectangle 1591" d="M5.224,0h0a5.224,5.224,0,0,1,5.224,5.224V8.462a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.224A5.224,5.224,0,0,1,5.224,0Z" transform="translate(2.828 0)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7"/>
+    </g>
+    <g id="Group_3943" data-name="Group 3943" transform="translate(-429.733 -685.934)">
+      <g id="Group_3939" data-name="Group 3939" transform="translate(0 0)">
+        <circle id="Ellipse_1385" data-name="Ellipse 1385" cx="0.837" cy="0.837" r="0.837" fill="#707070"/>
+      </g>
+      <g id="Group_3940" data-name="Group 3940" transform="translate(3.147 0)">
+        <circle id="Ellipse_1386" data-name="Ellipse 1386" cx="0.837" cy="0.837" r="0.837" fill="#707070"/>
+      </g>
+      <g id="Group_3941" data-name="Group 3941" transform="translate(6.293 0)">
+        <circle id="Ellipse_1387" data-name="Ellipse 1387" cx="0.837" cy="0.837" r="0.837" fill="#707070"/>
+      </g>
+      <g id="Group_3942" data-name="Group 3942" transform="translate(9.44 0)">
+        <circle id="Ellipse_1388" data-name="Ellipse 1388" cx="0.837" cy="0.837" r="0.837" fill="#707070"/>
+      </g>
+    </g>
+  </g>
+</svg>

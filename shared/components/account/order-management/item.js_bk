@@ -1,0 +1,111 @@
+import Link from 'next/link';
+import { FormattedNumber } from 'react-intl';
+import constants from '../../../config/constants';
+import UseWindowSize from '../../../library/use-window-size';
+
+const TableItem = (props) => {
+    const { item, button, href } = props;
+    const { width } = UseWindowSize();
+    return (
+        <tr key={item.OrderId}>
+            <td>
+                <Link href={`${href}${item.OrderId}`}>
+                    <div className="order-product">
+                        <p className="order-branch">{item.BuyFrom}</p>
+                        <div className="order-info">
+                            <div className="order-image">
+                                <img src={item?.Image} />
+                            </div>
+                            <div className="order-bill">
+                                <p>
+                                    <span>Số hoá đơn</span>:
+                                    <span>{item.OrderCode}</span>
+                                </p>
+                                <p>
+                                    <span>Tiền hàng</span>:
+                                    <span className="price">
+                                        <FormattedNumber
+                                            value={item.OrderAmount}
+                                        />
+                                        <span className="unit">VND</span>
+                                    </span>
+                                </p>
+                                <p>
+                                    <span>Vận chuyển</span>:
+                                    <span className="price">
+                                        <FormattedNumber
+                                            value={item.ShippingPrice}
+                                        />
+                                        <span className="unit">VND</span>
+                                    </span>
+                                </p>
+                                {width <= 767 && (
+                                    <React.Fragment>
+                                        <p>
+                                            <span>Tổng thanh toán</span>:
+                                            <span className="price">
+                                                <FormattedNumber
+                                                    value={item.TotalAmount}
+                                                />
+
+                                                <span className="unit">
+                                                    VND
+                                                </span>
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <span>Số lượng</span>:
+                                            <span>{item.OrderQuantity}</span>
+                                        </p>
+                                    </React.Fragment>
+                                )}
+                            </div>
+                        </div>
+                        {item?.CancelBy &&
+                            item.StatusCode ==
+                                constants.ORDER_STATUS.CANCEL && (
+                            <div className="d-between">
+                                <p className="cancel-by">
+                                        Đã huỷ bởi
+                                    <span
+                                        style={{
+                                            color: `${
+                                                item.CancelBy == 'FMPlus'
+                                                    ? 'red'
+                                                    : '#000'
+                                            }`,
+                                        }}>
+                                        {item?.CancelBy}
+                                    </span>
+                                </p>
+                                {width <= 767 && (
+                                    <OrderButton
+                                        text="Mua lại"
+                                        className="btn-cancel"
+                                    />
+                                )}
+                            </div>
+                        )}
+                        {width <= 767 && (
+                            <div className="d-end">{button && button}</div>
+                        )}
+                    </div>
+                </Link>
+            </td>
+            {width > 767 && (
+                <React.Fragment>
+                    <td className="text-center">1</td>
+                    <td className="text-center">
+                        <span className="price">
+                            <FormattedNumber value={item.TotalAmount} />
+                            <span className="unit">VND</span>
+                        </span>
+                    </td>
+                    <td>{button && button}</td>
+                </React.Fragment>
+            )}
+        </tr>
+    );
+};
+
+export default TableItem;
